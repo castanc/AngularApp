@@ -1,0 +1,19 @@
+<form (ngSubmit)="onSubmit(f2)" #f2="ngForm">
+        <div class="row">
+    <label for="glucose">Glucose:</label>
+    <input 
+        type="number" 
+        placeholder="Glucose Measure" 
+        ngModel
+        name = "glucose"
+        min="20"
+        max="300"
+        required
+        #glucose="ngModel"><span class="help-block" *ngIf="!glucose.valid && glucose.touched">Please enter a Glucose value</span>
+</div>
+<button 
+class="btn btn-primary" 
+[disabled]="!f2.valid"
+type="submit">Submit 2</button>
+
+</form>

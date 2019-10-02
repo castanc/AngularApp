@@ -1,0 +1,49 @@
+<div class="container">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="row">
+                <label for="fecha">Fecha / Hora:</label>
+                <input 
+                    type="date" 
+                    placeholder="Fecha" 
+                    [(ngModel)]="rs.fechaHoy"
+                    name = "fecha"
+                    required
+                    #fecha="ngModel">
+                    <span class="help-block" *ngIf="!fecha.valid && fecha.touched">Please enter the date</span>
+
+                    <input 
+                    type="time" 
+                    [(ngModel] = "rs.hora"
+                    name="hora"
+                    id = "hora"
+                    required 
+                    #hora="ngModel">
+                    <span class="help-block" *ngIf="!hora.valid && hora.touched">Please enter the time</span>
+            </div>
+            <div class="row">
+                <select 
+                    id="rectype" 
+                    name="rectype"
+                    class="form-control"
+                    required
+                    [ngModel] = "rs.RecType"
+                    #rectype="ngModel"
+                    (change)="onSelectedItemChanged(rs.RecType)"
+                    name = "rectype"
+                    >
+                       <option *ngFor="let item of rItems" [value]="item.Id">{{item.value}}</option> 
+                    </select>
+                <span class="help-block" *ngIf="!rectype.valid">Please select a Record Type</span>
+            </div>
+            
+            <router-outlet></router-outlet>
+            <div id="dynamic" class="container">
+            
+            </div>
+            <button 
+                class="btn btn-primary" 
+                [disabled]="!f.valid"
+                type="submit">Submit</button>
+        </form>            
+            
+           

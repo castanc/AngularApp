@@ -1,0 +1,38 @@
+<div class="container">
+        <div class="row">
+                <label for="fecha">Fecha / Hora:</label>
+                <input 
+                    type="date" 
+                    placeholder="Fecha" 
+                    [(ngModel)]="rs.FechaHoy"
+                    name = "fecha"
+                    required>
+
+                    <input 
+                    type="time" 
+                    [(ngModel)] = "rs.Hora"
+                    name="hora"
+                    id = "hora"
+                    required >
+                    {{rs.Fecha}}
+            </div>
+            <div class="row">
+                <select 
+                    id="rectype" 
+                    name="rectype"
+                    class="form-control"
+                    required
+                    [(ngModel)] = "rs.RecType"
+                    (change)="onSelectedItemChanged(rs.RecType)"
+                    name = "rectype"
+                    >
+                       <option *ngFor="let item of rItems" [value]="item.Id">{{item.value}}</option> 
+                    </select>
+            </div>
+            
+            <router-outlet></router-outlet>
+            <div id="dynamic" class="container">
+            
+            </div>
+            
+           

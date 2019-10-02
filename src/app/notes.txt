@@ -1,0 +1,29 @@
+lect:191    1:33    local reference for individual field.
+
+todo: makes valid the form why?
+fix: the local reference was missing the #
+
+lect:192 setting a default value to a combo doesn't trigger the 
+selection changed event
+
+todo: had to have a local private service to make it available to entire class why?
+basically in onInit
+
+
+todo: setting default to sometyhing different to the first one in the array
+doesnt work, loads the first one in the selectrion changed event
+
+lect: 193 1:42 constant reaction to input changes. two way binding.
+
+lect 194: ngModelGroup. Grouping fields logicalley ngModelGroup, local reference
+
+component inheritence
+https://medium.com/@saniyusuf/part-1-the-case-for-component-inheritance-in-angular-a34fe2a0f7ac
+
+dynamic fiorns ( reactive forms )
+https://angular.io/guide/dynamic-form
+
+
+
+
+

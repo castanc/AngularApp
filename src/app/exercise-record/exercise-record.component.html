@@ -1,0 +1,50 @@
+<div class="row">
+        <label for="distance">Distance:</label>
+        <input 
+            type="number" 
+            placeholder="Distance" 
+            ngModel
+            name = "distance"
+            min="500"
+            max="4000"
+            required
+            #distance="ngModel"><span class="help-block" *ngIf="!distance.valid && distance.touched">Please enter Distance</span>
+
+        <label for="hh">Time:</label>
+        <input 
+            type="number" 
+            placeholder="HH" 
+            ngModel
+            name = "hh"
+            min="0"
+            max="4"
+            #hh="ngModel">
+
+        <input 
+            type="number" 
+            placeholder="MM" 
+            ngModel
+            name = mm
+            min="0"
+            max="59">
+    
+        <input 
+            type="number" 
+            placeholder="SS" 
+            ngModel
+            name = "ss"
+            min="0"
+            max="59">
+        
+        <label for="calories">Calories Burnt:</label>
+        <input 
+        type="number" 
+        placeholder="Calories" 
+        ngModel
+        name = "calories"
+        min="0"
+        max="2000"
+        required
+        #calories="ngModel"><span class="help-block" *ngIf="!calories.valid && calories.touched">Please enter Calory count</span>
+    </div>
+    

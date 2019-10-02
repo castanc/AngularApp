@@ -1,0 +1,16 @@
+<div class="row">
+    Fecha:
+    <input type="datetime-local" placeholder="Fecha" [(ngModel)]="fecha" value={{getDateString()}}>
+</div>
+<div class="row">
+    Record Type:
+    <select id="rectype" name="rectype"
+            (change)="onSelectedItemChanged()"
+            [(ngModel)]="rectype" class="form-control">
+           <option *ngFor="let item of items" [value]="item.Id">{{item.value}}</option> 
+        </select>
+</div>
+
+<div id="dynamic" class="container">
+
+</div>

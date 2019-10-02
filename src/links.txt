@@ -1,0 +1,32 @@
+drop down combobox in angular
+https://medium.com/@madhavmahesh/angular-6-component-creation-for-combo-box-6b2eec03bece
+
+combobox from ngmodel
+https://www.youtube.com/watch?v=4fKa13TTn7E
+
+absolute and relative paths in angular
+relative paths start at project folder, not src
+            "styles": [
+              "src/styles.css",
+              "././node_modules/bootstrap/dist/css/bootstrap.min.css"
+
+https://stackoverflow.com/questions/41460810/avoiding-relative-paths-in-angular-cli/41460972
+
+
+laoding components dynamically
+https://medium.com/front-end-weekly/dynamically-add-components-to-the-dom-with-angular-71b0cb535286
+https://www.youtube.com/watch?v=2ZlM985_WE0
+
+strategies:
+  --all divs hidden, active one shown
+  
+  angular 8 tutorials examples 
+  https://appdividend.com/2019/06/07/angular-8-forms-tutorial-angular-reactive-and-template-forms-example/
+  
+
+  component inheritence
+https://medium.com/@saniyusuf/part-1-the-case-for-component-inheritance-in-angular-a34fe2a0f7ac
+
+dynamic fiorns ( reactive forms )
+https://angular.io/guide/dynamic-form
+

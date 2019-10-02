@@ -1,0 +1,100 @@
+castanc
+castanc@gmail.com
+esteeselpassworddegithub
+
+git init
+git add .
+git commit -m "message"
+
+git remote add origin https://github.com/castanc/BNR.git
+
+git push --set-upstream BigExplorer master
+git clone https://github.com/castanc/BigExplorer.git
+
+
+https://stackoverflow.com/questions/52108832/what-is-the-difference-between-git-pull-and-git-pull-origin-master
+*********************************************************************************************************
+*********************************************************************************************************
+*********************************************************************************************************
+*********************************************************************************************************
+--development cyclke
+cd to a folder
+git init
+git checkout -b feature_clipboard
+# verify current remotes
+git remote -v
+
+git remote add origin https://github.com/castanc/BNR.git
+
+# if need to merge with local
+git clone https://github.com/castanc/BNR.git
+--git clone crea subdkirectorio del repositori
+
+#fresh new copy from remote
+git pull https://github.com/castanc/BNR.git
+--git pull no crea subdirectorio
+makle changes
+git add
+git commit
+
+git remote add origin https://github.com/castanc/BNR.git
+git push --set-upstream origin feature_clipboard
+git push
+*********************************************************************************************************
+*********************************************************************************************************
+*********************************************************************************************************
+*********************************************************************************************************
+
+
+*********************************************************************************************************
+***CRREATE A NEW REPOSITORY FROM LOCAL FOLDER
+*********************************************************************************************************
+
+https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line
+
+*********************************************************************************************************
+*********************************************************************************************************
+*********************************************************************************************************
+*********************************************************************************************************
+***CRREATE A NEW REPOSITORY FROM LOCAL FOLDER
+*********************************************************************************************************
+
+create empty repository in github
+in an empty dir
+git init
+git remote add origin https://github.com/castanc/Bigexplorer.git
+git add .
+git commit -m "message"
+git push --set-upstream origin masters
+*********************************************************************************************************
+***CRREATE A NEW REPOSITORY FROM LOCAL FOLDER
+*********************************************************************************************************
+
+
+git checkout -b dev
+git clone https://github.com/castanc/BigExplorer.git
+
+
+git 
+git clone https://github.com/castanc/BigExplorer.git
+
+git branch -vv
+git remote -v
+
+
+change remotes:
+https://help.github.com/en/articles/changing-a-remotes-url
+
+
+
+git checkout -b dev
+
+
+remote actions:
+
+-create repository
+-remove bin and obj fodlers
+-copy .net defualt .gitignore
+upload all project files without binaries
+commit
+make a dev branch
