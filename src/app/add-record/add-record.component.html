@@ -31,8 +31,19 @@
             </div>
             
             <router-outlet></router-outlet>
-            <div id="dynamic" class="container">
-            
+            <div class ="row">
+                <button 
+                class="btn btn-danger" 
+                [disabled]="!rs.EnableSave"
+                (click) = "Save()"
+                type="submit">Save</button>
+
+                <button 
+                class="btn btn-primary" 
+                [disabled]="rs.EnableSave"
+                type="Reset">Clear</button>
+
+        </div>
             </div>
             
            

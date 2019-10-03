@@ -44,6 +44,11 @@ export class AddRecordComponent implements OnInit {
       this.router.navigate([rt.value], {relativeTo: this.route});
 
   }
+
+  clearForm()
+  {
+    this.rs.initialize();
+  }
   
 
   ngOnInit() {
@@ -52,6 +57,11 @@ export class AddRecordComponent implements OnInit {
     //todo: whay had to call this method. Is not called for the default initializer?
     this.RS.GetSelectItem(this.defaultRec);
 
+  }
+
+  Save()
+  {
+    this.rs.Save();
   }
 
 

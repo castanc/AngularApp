@@ -1,3 +1,4 @@
+<form (ngSubmit)="onSubmit(f2)" #f2="ngForm">
 <div class="row">
         <label for="distance">Distance:</label>
         <input 
@@ -47,4 +48,9 @@
         required
         #calories="ngModel"><span class="help-block" *ngIf="!calories.valid && calories.touched">Please enter Calory count</span>
     </div>
+    <button 
+class="btn btn-primary" 
+[disabled]="!f2.valid"
+type="submit">Submit 2</button>
     
+</form>

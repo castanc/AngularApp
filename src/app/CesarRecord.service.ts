@@ -10,10 +10,18 @@ export class RecordService{
     public FechaHoy: Date;
     public Hora: string = "";
     public RecType: string = "";
+    public EnableSave: boolean = false;
 
-    constructor(){
+
+    initialize(){
+
         this.FechaHoy = new Date();
         this.Hora = `${this.FechaHoy.getHours()}:${this.FechaHoy.getMinutes()}`;
+        this.Load();
+    }
+    
+    constructor(){
+        this.initialize();
 
     }
 
@@ -22,18 +30,22 @@ export class RecordService{
     {
         r.Id = this.records.length;
         this.records.push(r);
+        this.EnableSave = true;
+        console.log(`Record Added:${r.RecType} ${r.Id}`);
         return r.Id;
     }
 
     Load(){
-
+        let serialized = localStorage.getItem("data");
+        if ( serialized != null )
+        {
+            this.records = JSON.parse(serialized);
+            console.log('data loaded');
+            console.log(serialized);
+        }
     }
 
-    Save()
-    {
-
-    }
-
+    
     GetRecords() :Array<BaseRecord>{
         return this.records;
     }
@@ -56,6 +68,16 @@ export class RecordService{
         //TODO: THIS SHOULD NOT BE NECESARY, SHOULD BE LOADED BY TWO WAY BINDING AND IS NOT DOING SO
         this.RecType = id;
         console.log(`"GetSelectedItem:${id}"`)
+        this.EnableSave = false;
         return this.rt.filter(x => x.Id == id)[0];
+    }
+
+    Save()
+    {
+        let serialized = JSON.stringify(this.records);
+        localStorage.setItem("data", serialized);
+        console.log('data saved');
+        console.log(serialized);
+        this.EnableSave = false;
     }
 }

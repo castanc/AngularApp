@@ -34,11 +34,15 @@ export class GlucoseRecordComponent extends AddRecordComponent implements OnInit
    console.log(`CurrentTime:${this.rs.Hora}`);
    console.log(`REc Type: [${this.rs.RecType}]`)
 
-   let gr = new GlucoseRecord(this.rs.FechaHoy, this.rs.Hora, this.rs.RecType, form.value );
+   let gr = new GlucoseRecord(this.rs.FechaHoy, this.rs.Hora, this.rs.RecType, form.value.glucose );
    let id = this.rs.Add(gr);
  }
 
- 
+ clearForm()
+ {
+   super.clearForm();
+   this.parentForm.value.glucose = 0;
+ }
   
   
 }
