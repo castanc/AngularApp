@@ -30,7 +30,6 @@ export class AddRecordComponent implements OnInit {
     protected router: Router,
     protected route: ActivatedRoute)
   {
-    this.RS = rs;
     this.fechaHoy = new Date();
     this.currentTime = this.fechaHoy.getHours() + ":" +
       this.fechaHoy.getMinutes();

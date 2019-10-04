@@ -19,6 +19,7 @@ import { WeightRecordComponent } from './weight-record/weight-record.component';
 import { ExerciseRecordComponent } from './exercise-record/exercise-record.component';
 import { ExpensesRecordComponent } from './expenses-record/expenses-record.component';
 import { IncomesRecordComponent } from './incomes-record/incomes-record.component';
+import { StatusBarComponent } from './status-bar/status-bar.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { IncomesRecordComponent } from './incomes-record/incomes-record.componen
     ExerciseRecordComponent,
     ExpensesRecordComponent,
     IncomesRecordComponent,
+    StatusBarComponent,
   ],
   imports: [
     BrowserModule,

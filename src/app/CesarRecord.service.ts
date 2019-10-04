@@ -12,14 +12,36 @@ export class RecordService{
     public RecType: string = "";
     public EnableSave: boolean = false;
 
+    
+    private _message : string;
+    public get message() : string {
+        return this._message;
+    }
+    public set message(v : string) {
+        this._message = v;
+    }
+
+    
+    private _isError : boolean;
+    public get isError() : boolean {
+        return this._isError;
+    }
+    public set isError(v : boolean) {
+        this._isError = v;
+    }
+    
+    
+
 
     initialize(){
 
         this.FechaHoy = new Date();
         this.Hora = `${this.FechaHoy.getHours()}:${this.FechaHoy.getMinutes()}`;
         this.Load();
+        this.message = "Ready";
+        
     }
-    
+
     constructor(){
         this.initialize();
 
@@ -31,7 +53,8 @@ export class RecordService{
         r.Id = this.records.length;
         this.records.push(r);
         this.EnableSave = true;
-        console.log(`Record Added:${r.RecType} ${r.Id}`);
+        this.message = `Record Added:${r.RecType} ${r.Id}`
+        console.log(this.message);
         return r.Id;
     }
 
@@ -40,7 +63,8 @@ export class RecordService{
         if ( serialized != null )
         {
             this.records = JSON.parse(serialized);
-            console.log('data loaded');
+            this.message = `DataLoaded. ${this.records.length} records`;
+            console.log(this.message);
             console.log(serialized);
         }
     }
@@ -66,7 +90,7 @@ export class RecordService{
 
     GetSelectItem(id: string): SelectItem{
         //TODO: THIS SHOULD NOT BE NECESARY, SHOULD BE LOADED BY TWO WAY BINDING AND IS NOT DOING SO
-        this.RecType = id;
+        //this.RecType = id;
         console.log(`"GetSelectedItem:${id}"`)
         this.EnableSave = false;
         return this.rt.filter(x => x.Id == id)[0];
@@ -76,7 +100,8 @@ export class RecordService{
     {
         let serialized = JSON.stringify(this.records);
         localStorage.setItem("data", serialized);
-        console.log('data saved');
+        this.message = `Data Saved, total records: ${this.records.length}`;
+        console.log(this.message);
         console.log(serialized);
         this.EnableSave = false;
     }
