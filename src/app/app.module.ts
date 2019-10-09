@@ -20,6 +20,7 @@ import { ExerciseRecordComponent } from './exercise-record/exercise-record.compo
 import { ExpensesRecordComponent } from './expenses-record/expenses-record.component';
 import { IncomesRecordComponent } from './incomes-record/incomes-record.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
+import { FoodItemComponent } from './food-item/food-item.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { StatusBarComponent } from './status-bar/status-bar.component';
     ExpensesRecordComponent,
     IncomesRecordComponent,
     StatusBarComponent,
+    FoodItemComponent,
   ],
   imports: [
     BrowserModule,

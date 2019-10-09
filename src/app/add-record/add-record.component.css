@@ -5,3 +5,9 @@
 input.select.ng-invalid.ng-touched {
     border: 1px solid red; 
 }
+
+.statusmessge {
+    padding:20;
+    background-color: lightgreen;
+    border: 1px solid green;
+}

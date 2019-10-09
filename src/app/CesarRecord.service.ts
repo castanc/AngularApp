@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class RecordService{
     private records: Array<BaseRecord> = [];
     private rt: Array<SelectItem> = [];
+    private units: Array<SelectItem> = [];
 
     public FechaHoy: Date;
     public Hora: string = "";
@@ -74,6 +75,16 @@ export class RecordService{
         return this.records;
     }
 
+    get Units():Array<SelectItem>{
+        this.units = [];
+        this.units.push(new SelectItem("GR","Grams"));
+        this.units.push(new SelectItem("ML","Mililiters"));
+        this.units.push(new SelectItem("OZ","Ounces"));
+        this.units.push(new SelectItem("LT","Liter"));
+        this.units.push(new SelectItem("LB","Pound"));
+        this.units.push(new SelectItem("U","Unit"));
+        return this.units;
+    }
     get RecTypes():Array<SelectItem>{
         this.rt = [];
         this.rt.push(new SelectItem("FOOD","Food"));

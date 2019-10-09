@@ -22,7 +22,7 @@ export class AddRecordComponent implements OnInit {
   protected rItems: SelectItem[] = [];
   protected fechaHoy: Date;
   protected currentTime: string = "";
-  protected RS: RecordService;
+  //protected RS: RecordService;
   protected parentForm: NgForm;
 
 
@@ -54,7 +54,7 @@ export class AddRecordComponent implements OnInit {
     this.rItems = this.rs.RecTypes; 
     this.rectype = this.rItems[0].Id;
     //todo: whay had to call this method. Is not called for the default initializer?
-    this.RS.GetSelectItem(this.defaultRec);
+    this.rs.GetSelectItem(this.defaultRec);
 
   }
 
