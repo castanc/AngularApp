@@ -24,6 +24,10 @@ dynamic fiorns ( reactive forms )
 https://angular.io/guide/dynamic-form
 
 
+dynamic grid in angular
+https://www.c-sharpcorner.com/article/dynamically-add-and-remove-row-in-angular-7/
+
+
 
 
 

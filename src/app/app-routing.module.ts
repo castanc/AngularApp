@@ -11,13 +11,14 @@ import { ExerciseRecordComponent } from './exercise-record/exercise-record.compo
 import { ExpensesRecordComponent } from './expenses-record/expenses-record.component';
 import { IncomesRecordComponent } from './incomes-record/incomes-record.component';
 import { FilterComponent } from './filter/filter.component';
+import { MealComponent } from './meal/meal.component'
 
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/Nuevo', pathMatch: 'full'},
   {path: 'Nuevo', component: AddRecordComponent, children: [
     {path: 'Glucose', component: GlucoseRecordComponent},
-    {path: 'Food', component: FoodRecordComponent},
+    {path: 'Food', component: MealComponent},
     {path: 'Drug', component: DrugRecordComponent },
     {path: 'Pressure', component: PressureRecordComponent },
     {path: 'Weight', component: WeightRecordComponent },

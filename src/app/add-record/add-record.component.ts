@@ -22,7 +22,6 @@ export class AddRecordComponent implements OnInit {
   protected rItems: SelectItem[] = [];
   protected fechaHoy: Date;
   protected currentTime: string = "";
-  //protected RS: RecordService;
   protected parentForm: NgForm;
 
 

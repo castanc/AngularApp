@@ -21,6 +21,9 @@ import { ExpensesRecordComponent } from './expenses-record/expenses-record.compo
 import { IncomesRecordComponent } from './incomes-record/incomes-record.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
 import { FoodItemComponent } from './food-item/food-item.component';
+import { MealComponent } from './meal/meal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
+import { ToastrModule } from 'ngx-toastr';  
 
 @NgModule({
   declarations: [
@@ -41,12 +44,15 @@ import { FoodItemComponent } from './food-item/food-item.component';
     IncomesRecordComponent,
     StatusBarComponent,
     FoodItemComponent,
+    MealComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,  
+    ToastrModule.forRoot()  
   ],
   providers: [RecordService],
   bootstrap: [AppComponent]

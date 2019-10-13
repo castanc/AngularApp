@@ -16,7 +16,10 @@ import { FoodItemComponent } from '../food-item/food-item.component'
 })
 export class FoodRecordComponent extends AddRecordComponent implements OnInit  {
 
-  items: Array<FoodItem> = [];
+  foodItem: FoodItem = null;
+  
+  foodElements: Array<FoodItem> = []
+
   constructor( protected rs: RecordService,    protected router: Router,
     protected route: ActivatedRoute )
   {

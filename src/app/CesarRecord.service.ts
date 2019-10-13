@@ -1,5 +1,6 @@
 import {BaseRecord } from './Models/BaseRecord';
 import { SelectItem } from './Models/SelectItem';
+import { FoodItem } from './Models/FoodItem'
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -7,6 +8,8 @@ export class RecordService{
     private records: Array<BaseRecord> = [];
     private rt: Array<SelectItem> = [];
     private units: Array<SelectItem> = [];
+    private brands: Array<SelectItem> = [];
+    private foodItems: Array<FoodItem> = [];
 
     public FechaHoy: Date;
     public Hora: string = "";
@@ -75,6 +78,14 @@ export class RecordService{
         return this.records;
     }
 
+    get Brands():Array<SelectItem>{
+        this.brands = [];
+        this.brands.push(new SelectItem("CNP","Conaprole"));
+        this.brands.push(new SelectItem("COK","Coca Cola"));
+        this.brands.push(new SelectItem("PAT","Patricia"));
+        this.brands.push(new SelectItem("LAY","Lays"));
+        return this.brands;
+    }
     get Units():Array<SelectItem>{
         this.units = [];
         this.units.push(new SelectItem("GR","Grams"));
@@ -97,6 +108,33 @@ export class RecordService{
         this.rt.push(new SelectItem("$IN","Incomes"));
     
         return this.rt;
+    }
+
+    get FoodItems():Array<FoodItem>{
+        this.foodItems = [];
+        //todo: fake list
+        this.foodItems.push(new FoodItem("EGG","Huevos"));
+        this.foodItems.push(new FoodItem("MLK","Leche Descremada"));
+        this.foodItems.push(new FoodItem("CHO","Barra Chocolate"));
+        this.foodItems.push(new FoodItem("BRD","Pan frances"));
+        this.foodItems.push(new FoodItem("RCE","Arroz"));
+        this.foodItems.push(new FoodItem("MET","Carne"));
+        this.foodItems.push(new FoodItem("CHK","Pollo"));
+        this.foodItems.push(new FoodItem("FF","French Fries"));
+        this.foodItems.push(new FoodItem("WAT","Water"));
+        this.foodItems.push(new FoodItem("TUN","Tuna"));
+        this.foodItems.push(new FoodItem("SAL","Salad"));
+        this.foodItems.push(new FoodItem("MIP","Milanesa Pollo"));
+        this.foodItems.push(new FoodItem("MIC","Milanesa Carne"));
+        this.foodItems.push(new FoodItem("CHV","Chivito"));
+        this.foodItems.push(new FoodItem("LMY","Lemeyun"));
+        this.foodItems.push(new FoodItem("PP1","Papas Fritas bolsa"));
+        this.foodItems.push(new FoodItem("PP2","Papas Fritas Tubo"));
+        this.foodItems.push(new FoodItem("CRP","Creps"));
+        this.foodItems.push(new FoodItem("CAN","Canelones"));
+        this.foodItems.push(new FoodItem("LAS","Lasagna"));
+
+        return this.foodItems;
     }
 
     GetSelectItem(id: string): SelectItem{

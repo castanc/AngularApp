@@ -14,7 +14,8 @@ import { FoodItem } from '../Models/FoodItem';
 })
 export class FoodItemComponent  extends AddRecordComponent implements OnInit {
 
-  private fi: FoodItem = new FoodItem();
+  private fi: FoodItem = null;
+  
 
   get FI():FoodItem {
     return this.fi;
