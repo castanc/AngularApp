@@ -99,13 +99,13 @@ export class RecordService{
     get RecTypes():Array<SelectItem>{
         this.rt = [];
         this.rt.push(new SelectItem("FOOD","Food"));
-        this.rt.push(new SelectItem("DRUG","Drug"));
+        //this.rt.push(new SelectItem("DRUG","Drug"));
         this.rt.push(new SelectItem("GLUC","Glucose"));
-        this.rt.push(new SelectItem("PRES","Pressure"));
-        this.rt.push(new SelectItem("WGT","Weight"));
+        //this.rt.push(new SelectItem("PRES","Pressure"));
+        //this.rt.push(new SelectItem("WGT","Weight"));
         this.rt.push(new SelectItem("EXE","Exercise"));
-        this.rt.push(new SelectItem("$EX","Expenses"));
-        this.rt.push(new SelectItem("$IN","Incomes"));
+        //this.rt.push(new SelectItem("$EX","Expenses"));
+        //this.rt.push(new SelectItem("$IN","Incomes"));
     
         return this.rt;
     }
@@ -113,6 +113,7 @@ export class RecordService{
     get FoodItems():Array<FoodItem>{
         this.foodItems = [];
         //todo: fake list
+        this.foodItems.push(new FoodItem("","Select Item"));
         this.foodItems.push(new FoodItem("EGG","Huevos",1,"U","DISCO",""));
         this.foodItems.push(new FoodItem("BRD","Pan frances",1,"U","DISCO"));
         this.foodItems.push(new FoodItem("RCE","Arroz",100,"GR","DISCO"));

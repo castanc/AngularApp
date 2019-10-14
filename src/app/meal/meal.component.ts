@@ -56,7 +56,19 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
   {
     super.clearForm();
   }
- 
+
+  showRecords(){
+    let sm = "";
+    let rec = "";
+    for (let it of this.foodRecords )
+    {
+      rec =   `${it.id} ${ it.foodItemId} ${it.fi.value} ${it.fi.cant} ${it.fi.brand}`;
+      sm += rec + "\r\n";
+      console.log(rec);
+    }
+    this.rs.message = sm;
+
+  }
   //todo: if the id is typed it always comes in 0, must be left any
   onSelectedFoodItemChanged(foodId: string, id)
   {
@@ -64,22 +76,23 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
     this.foodRecords[id].fi = this.fi;
     this.foodRecords[id].foodItemId = foodId;
     this.foodRecords[id].cant = this.fi.cant;
-    console.log(`onSelectedFoodItemChanged() ${id} ${ this.foodRecords[id].foodItemId} ${this.foodRecords[id].fi.cant} ${this.foodRecords[id].fi.brand}`)
+    this.rs.message = `onSelectedFoodItemChanged() ${id} ${this.foodRecords[id].id} ${ this.foodRecords[id].foodItemId} ${this.foodRecords[id].fi.value} ${this.foodRecords[id].fi.cant} ${this.foodRecords[id].fi.brand}`;
+    console.log(this.rs.message);
+    this.showRecords();  
+
   }
 
   addRow(index) {    
     this.newItem = new FoodRecord();
-    this.newItem.fi = this.fi;
+    this.newItem.fi = new FoodItem("","");
+    this.newItem.id = this.foodRecords.length;
     this.foodRecords.push(this.newItem); 
     //this.toastr.success('New row added successfully', 'New Row');  
     this.rs.message = 'New row added successfully', 'New Row';
     console.log(this.newItem);  
     console.log(this.foodRecords.length);
 
-    for (let item of this.foodRecords )
-    {
-      console.log(item.foodItemId);
-    }
+  this.showRecords();
     return true;  
 }  
 

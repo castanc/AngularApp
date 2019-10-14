@@ -14,6 +14,20 @@ export class FoodRecord{
     
 
 private _foodItemId : string;
+
+
+
+private _id : number;
+public get id() : number {
+    return this._id;
+}
+public set id(v : number) {
+    this._id = v;
+}
+
+
+
+
 public get foodItemId() : string {
     return this._foodItemId;
 }
