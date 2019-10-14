@@ -113,13 +113,11 @@ export class RecordService{
     get FoodItems():Array<FoodItem>{
         this.foodItems = [];
         //todo: fake list
-        this.foodItems.push(new FoodItem("EGG","Huevos"));
-        this.foodItems.push(new FoodItem("MLK","Leche Descremada"));
-        this.foodItems.push(new FoodItem("CHO","Barra Chocolate"));
-        this.foodItems.push(new FoodItem("BRD","Pan frances"));
-        this.foodItems.push(new FoodItem("RCE","Arroz"));
-        this.foodItems.push(new FoodItem("MET","Carne"));
-        this.foodItems.push(new FoodItem("CHK","Pollo"));
+        this.foodItems.push(new FoodItem("EGG","Huevos",1,"U","DISCO",""));
+        this.foodItems.push(new FoodItem("BRD","Pan frances",1,"U","DISCO"));
+        this.foodItems.push(new FoodItem("RCE","Arroz",100,"GR","DISCO"));
+        this.foodItems.push(new FoodItem("MET","Carne",200,"GR","DISCO"));
+        this.foodItems.push(new FoodItem("CHK","Pollo",200,"GR","DISCO"));
         this.foodItems.push(new FoodItem("FF","French Fries"));
         this.foodItems.push(new FoodItem("WAT","Water"));
         this.foodItems.push(new FoodItem("TUN","Tuna"));
@@ -136,6 +134,15 @@ export class RecordService{
 
         return this.foodItems;
     }
+
+    GetSelectFoodItem(id: string): FoodItem{
+        //TODO: THIS SHOULD NOT BE NECESARY, SHOULD BE LOADED BY TWO WAY BINDING AND IS NOT DOING SO
+        //this.RecType = id;
+        console.log(`"GetSelectedFoodItem:${id}"`)
+        this.EnableSave = false;
+        return this.foodItems.filter(x => x.Id == id)[0];
+    }
+
 
     GetSelectItem(id: string): SelectItem{
         //TODO: THIS SHOULD NOT BE NECESARY, SHOULD BE LOADED BY TWO WAY BINDING AND IS NOT DOING SO

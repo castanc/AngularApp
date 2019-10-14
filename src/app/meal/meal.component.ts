@@ -21,8 +21,14 @@ import { FoodRecord } from '../Models/FoodRecord'
 export class MealComponent  extends AddRecordComponent implements OnInit  {
 
   cant: number = 0;
+  fi: FoodItem = new FoodItem("","");
+  foodItemId: string = "";
   foodRecords: Array<FoodRecord> = []
   newItem: FoodRecord = null;  
+  foodItemType: string = "";
+  brandName: string = "";
+  unitName: string = "";
+
 
   constructor( protected rs: RecordService,    protected router: Router,
     protected route: ActivatedRoute )
@@ -51,17 +57,34 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
     super.clearForm();
   }
  
+  //todo: if the id is typed it always comes in 0, must be left any
+  onSelectedFoodItemChanged(foodId: string, id)
+  {
+    this.fi = this.rs.GetSelectFoodItem(foodId);
+    this.foodRecords[id].fi = this.fi;
+    this.foodRecords[id].foodItemId = foodId;
+    this.foodRecords[id].cant = this.fi.cant;
+    console.log(`onSelectedFoodItemChanged() ${id} ${ this.foodRecords[id].foodItemId} ${this.foodRecords[id].fi.cant} ${this.foodRecords[id].fi.brand}`)
+  }
 
   addRow(index) {    
-    this.newItem = new FoodRecord(this.rs.FechaHoy, this.rs.Hora, this.rs.RecType);
+    this.newItem = new FoodRecord();
+    this.newItem.fi = this.fi;
     this.foodRecords.push(this.newItem); 
     //this.toastr.success('New row added successfully', 'New Row');  
     this.rs.message = 'New row added successfully', 'New Row';
     console.log(this.newItem);  
+    console.log(this.foodRecords.length);
+
+    for (let item of this.foodRecords )
+    {
+      console.log(item.foodItemId);
+    }
     return true;  
 }  
-  
+
 deleteRow(index) {  
+    console.log("delete row " + index);
     if(this.foodRecords.length ==1) {  
       //this.toastr.error("Can't delete the row when there is only one row", 'Warning');  
       this.rs.message = "Can't delete the row when there is only one row";

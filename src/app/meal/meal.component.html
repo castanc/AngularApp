@@ -4,9 +4,9 @@
         <thead>    
             <tr>    
                 <th>Action</th>    
-                <th>Cant</th>    
                 <th>Food Item</th>    
-                <th>Title 3</th>    
+                <th>Qty</th>    
+                <th>Brand</th>    
             </tr>    
         </thead>    
         <tbody>    
@@ -14,13 +14,22 @@
               <td (click)="deleteRow(i)">    
                 <i class="fa fa-trash fa-2x"></i>    
               </td>    
+              <td>
+                <select 
+                id="foodItemId" 
+                name="foodItemId"
+                class="form-control"
+                required
+                [(ngModel)] = "fr.foodItemId"
+                (change)="onSelectedFoodItemChanged(fr.foodItemId,i)">
+                   <option *ngFor="let item of rs.FoodItems"  [selected]="item.id == fr.foodItemId"  [value]="item.Id">{{item.value}}</option> 
+                </select>                
+              </td>
                 <td>    
-                  <input name="cant" [(ngModel)]="foodRecords[i].cant" class="form-control" type="text" />    
+                  <input name="cant" [(ngModel)]="fr.cant" class="form-control" type="text" />    
                 </td>    
                 <td>    
-                  <input name="descr" [(ngModel)]="foodRecords[i].descr" class="form-control" type="text" />    
-                </td>    
-                <td>    
+                    <input name="brand" [(ngModel)]="fr.fi.brand" class="form-control" type="text" />    
                 </td>    
             </tr>    
             <tr>    

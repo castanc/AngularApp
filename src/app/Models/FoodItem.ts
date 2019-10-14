@@ -5,6 +5,9 @@ export class FoodItem extends SelectItem{
     constructor(id:string,value:string,
         cant: number=0, unidad:string="",brand:string="",image:string=""){
         super(id,value);
+        this.cant = cant;
+        this.image = image;
+        this.brand = brand;
     }
 
     private _cant : number;
