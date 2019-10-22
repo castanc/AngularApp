@@ -60,24 +60,32 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
   showRecords(){
     let sm = "";
     let rec = "";
+    let count = 0;
+
     for (let it of this.foodRecords )
     {
-      rec =   `${it.id} ${ it.foodItemId} ${it.fi.value} ${it.fi.cant} ${it.fi.brand}`;
+      rec =   `${count} ${it.id} ${ it.foodItemId} ${it.fi.value} ${it.fi.cant} ${it.fi.brand}`;
       sm += rec + "\r\n";
-      console.log(rec);
+      count++;
+      //console.log(rec);
     }
-    this.rs.message = sm;
+    console.log(sm);
+    // this.rs.message = sm;
+    // for (let it of this.foodRecords )
+    // {
+    //   console.log(it.foodItemId,  it.fi);
+    // }
 
   }
   //todo: if the id is typed it always comes in 0, must be left any
-  onSelectedFoodItemChanged(foodId: string, id)
+  onSelectedFoodItemChanged(foodId: string, id:number)
   {
     this.fi = this.rs.GetSelectFoodItem(foodId);
     this.foodRecords[id].fi = this.fi;
     this.foodRecords[id].foodItemId = foodId;
     this.foodRecords[id].cant = this.fi.cant;
     this.rs.message = `onSelectedFoodItemChanged() ${id} ${this.foodRecords[id].id} ${ this.foodRecords[id].foodItemId} ${this.foodRecords[id].fi.value} ${this.foodRecords[id].fi.cant} ${this.foodRecords[id].fi.brand}`;
-    console.log(this.rs.message);
+    // console.log(this.rs.message);
     this.showRecords();  
 
   }
@@ -89,10 +97,7 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
     this.foodRecords.push(this.newItem); 
     //this.toastr.success('New row added successfully', 'New Row');  
     this.rs.message = 'New row added successfully', 'New Row';
-    console.log(this.newItem);  
-    console.log(this.foodRecords.length);
-
-  this.showRecords();
+    this.showRecords();
     return true;  
 }  
 
@@ -106,6 +111,7 @@ deleteRow(index) {
         this.foodRecords.splice(index, 1);  
         //this.toastr.warning('Row deleted successfully', 'Delete row');  
         this.rs.message = 'Row deleted successfully', 'Delete row';
+        this.showRecords();
         return true;  
     }  
 }  
