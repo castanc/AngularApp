@@ -16,17 +16,16 @@
               </td>    
               <td>
                 <select 
-                id="foodItemId" 
-                name="foodItemId"
+                [name]="rs.getName('foodItemId',i)"
                 class="form-control"
                 required
                 [(ngModel)] = "fr.foodItemId"
                 (change)="onSelectedFoodItemChanged(fr.foodItemId,i)">
-                   <option *ngFor="let item of rs.FoodItems"  [selected]="item.id == fr.foodItemId"  [value]="item.Id">{{item.value}}</option> 
+                   <option *ngFor="let item of rs.FoodItems"  [selected]="item.Id == fr.foodItemId"  [value]="item.Id">{{item.value}}</option> 
                 </select>                
               </td>
                 <td>    
-                  <input name="cant" [(ngModel)]="fr.cant" class="form-control" type="text" />    
+                  <input [name]="rs.getName('cant',i)" [(ngModel)]="fr.cant" class="form-control" type="text" />    
                 </td>    
                 <td>    
                     {{fr.fi.brand}}
