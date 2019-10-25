@@ -35,6 +35,10 @@ export class RecordService{
     }
     
     
+    getName(name: string, id: number)
+    {
+        return name + id.toString();
+    }
 
 
     initialize(){
