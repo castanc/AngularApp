@@ -18,7 +18,6 @@
             </div>
             <div class="row">
                 <select 
-                    id="rectype" 
                     name="rectype"
                     class="form-control"
                     required
@@ -26,12 +25,15 @@
                     (change)="onSelectedItemChanged(rs.RecType)"
                     name = "rectype"
                     >
-                       <option *ngFor="let item of rItems" [value]="item.Id">{{item.value}}</option> 
+                       <option *ngFor="let item of rs.RecTypes" [selected]="item.Id == rs.RecType" [value]="item.Id">{{item.value}}</option> 
                     </select>
             </div>
             
             <router-outlet></router-outlet>
-            <div class ="row">
+
+            
+            <div  class ="row">
+                <!--
                 <button 
                 class="btn btn-danger" 
                 [disabled]="!rs.EnableSave"
@@ -42,7 +44,7 @@
                 class="btn btn-primary" 
                 [disabled]="rs.EnableSave"
                 type="Reset">Clear</button>
-
+                -->
                 <!--<input type="hidden" [(ngModel)]="rs.message">-->
 
         </div>

@@ -1,22 +1,14 @@
 import {BaseRecord } from './BaseRecord'
 import {FoodItem } from './FoodItem'
-import { FoodRecord} from './FoodRecord'
+//import { FoodRecord} from './FoodRecord'
+import { FoodItemRecordSave } from './FoodItemRecordSave'
 
 export class MealRecord extends BaseRecord{
 
-   
-    private _data : string;
-    public get data() : string {
-        return this._data;
-    }
-    public set data(v : string) {
-        this._data = v;
-    }
-    
+    frs: Array<FoodItemRecordSave> = [];
   
-    constructor(fecha: Date, hora: string, rectype: string, data:string ="")
+    constructor(fecha: Date, hora: string, rectype: string )
     {
         super(fecha,hora,rectype);
-        this.data = data;
     }
 }

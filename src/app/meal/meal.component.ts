@@ -9,6 +9,8 @@ import { RecordService } from '../CesarRecord.service';
 import { AddRecordComponent } from '../add-record/add-record.component';
 import { FoodItemComponent } from '../food-item/food-item.component'
 import { FoodRecord } from '../Models/FoodRecord'
+import { MealRecord } from '../Models/MealRecord';
+import { FoodItemRecordSave } from '../Models/FoodItemRecordSave'
 
 
 //view grid dynamically add delete rows
@@ -42,14 +44,17 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
   }
 
   onSubmit(form: NgForm){
-    console.log("meal submit");
-    console.log(form.value);
-    console.log(`fechaHoy:${this.rs.FechaHoy}`);
-    console.log(`CurrentTime:${this.rs.Hora}`);
-    console.log(`REc Type: [${this.rs.RecType}]`)
- 
-    //let gr = new GlucoseRecord(this.rs.FechaHoy, this.rs.Hora, this.rs.RecType, form.value.glucose );
-    //let id = this.rs.Add(gr);
+    console.log("meal submit:", form);
+
+    let mr = new MealRecord(this.rs.FechaHoy, this.rs.Hora, this.rs.RecType);
+    for ( let it of this.foodRecords )
+    {
+      if ( it.cant >  0)
+        mr.frs.push(new FoodItemRecordSave(it.foodItemId, it.cant, it.sugar, it.fat,it.sodium,it.calories))
+    }
+    let id = this.rs.Add(mr);
+    this.rs.Save();
+    this.foodRecords = [];
   }
  
   clearForm()
@@ -64,7 +69,7 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
 
     for (let it of this.foodRecords )
     {
-      rec =   `${count} ${it.id} ${ it.foodItemId} ${it.fi.value} ${it.fi.cant} ${it.fi.brand}`;
+      rec =   `${count} ${it.id} ${ it.foodItemId} ${it.fi.value} ${it.fi.cant} ${it.cant} ${it.fi.brand}`;
       sm += rec + "\r\n";
       count++;
       //console.log(rec);
@@ -84,10 +89,11 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
     this.foodRecords[id].fi = this.fi;
     this.foodRecords[id].foodItemId = foodId;
     this.foodRecords[id].cant = this.fi.cant;
+    this.foodRecords[id].brand = this.fi.brand;
     this.rs.message = `onSelectedFoodItemChanged() ${id} ${this.foodRecords[id].id} ${ this.foodRecords[id].foodItemId} ${this.foodRecords[id].fi.value} ${this.foodRecords[id].fi.cant} ${this.foodRecords[id].fi.brand}`;
-    // console.log(this.rs.message);
-    this.showRecords();  
-
+    if ( id == this.foodRecords.length - 1 )
+      this.addRow(id+1);
+    
   }
 
   addRow(index) {    
@@ -97,9 +103,9 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
     this.foodRecords.push(this.newItem); 
     //this.toastr.success('New row added successfully', 'New Row');  
     this.rs.message = 'New row added successfully', 'New Row';
-    this.showRecords();
     return true;  
 }  
+
 
 deleteRow(index) {  
     console.log("delete row " + index);
@@ -111,10 +117,21 @@ deleteRow(index) {
         this.foodRecords.splice(index, 1);  
         //this.toastr.warning('Row deleted successfully', 'Delete row');  
         this.rs.message = 'Row deleted successfully', 'Delete row';
-        this.showRecords();
         return true;  
     }  
 }  
+
+calcCant(foodItemId:string, index: number, cant: number)
+{
+  console.log('cant item:',this.foodRecords[index].fi.cant);
+  this.foodRecords[index].sugar = this.foodRecords[index].fi.sugar*(cant/this.foodRecords[index].fi.cant);
+  this.foodRecords[index].sodium = this.foodRecords[index].fi.sodium*(cant/this.foodRecords[index].fi.cant);
+  this.foodRecords[index].fat = this.foodRecords[index].fi.fat*(cant/this.foodRecords[index].fi.cant);
+  this.foodRecords[index].calories = this.foodRecords[index].fi.calories*(cant/this.foodRecords[index].fi.cant);
+  this.foodRecords[index].prot = this.foodRecords[index].fi.prot*(cant/this.foodRecords[index].fi.cant);
+
+
+}
 
 }
 

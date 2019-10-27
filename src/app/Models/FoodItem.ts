@@ -8,9 +8,10 @@ export class FoodItem extends SelectItem{
         this.cant = cant;
         this.image = image;
         this.brand = brand;
+        this.unidad = unidad;
     }
 
-    private _cant : number;
+    private _cant : number=0; 
     public get cant() : number {
         return this._cant;
     }
@@ -47,7 +48,7 @@ export class FoodItem extends SelectItem{
     }
 
     
-    private _sugar : number;
+    private _sugar : number=0;
     public get sugar() : number {
         return this._sugar;
     }
@@ -56,7 +57,7 @@ export class FoodItem extends SelectItem{
     }
     
     
-    private _fat : number;
+    private _fat : number=0;
     public get fat() : number {
         return this._fat;
     }
@@ -65,7 +66,7 @@ export class FoodItem extends SelectItem{
     }
        
     
-    private _sodium : number;
+    private _sodium : number=0;
     public get sodium() : number {
         return this._sodium;
     }
@@ -74,13 +75,23 @@ export class FoodItem extends SelectItem{
     }
 
     
-    private _calories : number;
+    private _calories : number=0;
     public get calories() : number {
         return this._calories;
     }
     public set calories(v : number) {
         this._calories = v;
     }
+
+    
+    private _prot : number=0;
+    public get prot() : number {
+        return this._prot;
+    }
+    public set prot(v : number) {
+        this._prot = v;
+    }
+    
     
     
     

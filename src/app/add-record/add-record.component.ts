@@ -37,9 +37,18 @@ export class AddRecordComponent implements OnInit {
   onSelectedItemChanged(rectype: string)
   {
     //lect: 165 go to route proghramatifcdally
-    let rt = this.rs.GetSelectItem(rectype);
-    if (rt != null )
+    console.log('RecType Selected', this.rs.RecType)
+    this.rectype = rectype;
+    let rt = this.rs.GetSelectItem(this.rs.RecType);
+    if (rt != undefined )
+    {
+      console.log('onSelectedItemChanged, recType:',rt)
       this.router.navigate([rt.value], {relativeTo: this.route});
+    }
+    else
+    {
+        throw new Error("Invalid record type at add-record-component.ts onSelectedItemChanged")
+    }
 
   }
 
@@ -50,11 +59,8 @@ export class AddRecordComponent implements OnInit {
   
 
   ngOnInit() {
-    this.rItems = this.rs.RecTypes; 
-    this.rectype = this.rItems[0].Id;
-    //todo: whay had to call this method. Is not called for the default initializer?
-    this.rs.GetSelectItem(this.defaultRec);
-
+    //this.onSelectedItemChanged(this.rs.RecType);
+    //this.router.navigateByUrl(`'/Nuevo/${this.rs.RecType}'`)
   }
 
   Save()

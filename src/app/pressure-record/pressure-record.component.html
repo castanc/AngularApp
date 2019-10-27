@@ -1,1 +1,42 @@
-<p>pressure-record works!</p>
+<form (ngSubmit)="onSubmit(f2)" #f2="ngForm">
+        <div class="form-control">
+                <input 
+                    type="number" 
+                    placeholder="Dyastolilc" 
+                    ngModel
+                    name = "dyastolic"
+                    min="0"
+                    max="400"
+                    required
+                    #dyastolic="ngModel"><span class="help-block" *ngIf="!dyastolic.valid && dyastolic.touched">Please enter Dyastolic</span>
+        </div>
+        
+                <div class="form-control">
+                <input 
+                    type="number" 
+                    placeholder="Systolic" 
+                    ngModel
+                    name = "systolic"
+                    min="0"
+                    max="200"
+                    required
+                    #systolic="ngModel"><span class="help-block" *ngIf="!systolic.valid && systolic.touched">Please enter Systolic</span>
+                </div>
+
+                <div class="form-control">
+                    <input 
+                    type="number" 
+                    placeholder="Heart Rate" 
+                    ngModel
+                    name = heartRate
+                    min="0"
+                    max="200"
+                    required
+                    #heartRate="ngModel"><span class="help-block" *ngIf="!heartRate.valid && heartRate.touched">Please enter Heart Rate</span>                    
+                </div>
+            <button 
+        class="btn btn-primary" 
+        [disabled]="!f2.valid"
+        type="submit">Submit</button>
+            
+        </form>

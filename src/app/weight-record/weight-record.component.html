@@ -1,1 +1,67 @@
-<p>weight-record works!</p>
+<form (ngSubmit)="onSubmit(f2)" #f2="ngForm">
+        <div class="form-control">
+                <input 
+                    type="number" 
+                    placeholder="Weight" 
+                    ngModel
+                    name = "weight"
+                    min="0"
+                    max="400"
+                    required
+                    #weight="ngModel"><span class="help-block" *ngIf="!weight.valid && weight.touched">Please enter Weight</span>
+        </div>
+                <div class="form-control">
+                <input 
+                    type="number" 
+                    placeholder="Fat" 
+                    ngModel
+                    name = "fat"
+                    min="0"
+                    max="200"
+                    required
+                    #fat="ngModel"><span class="help-block" *ngIf="!fat.valid && fat.touched">Please enter Fat</span>
+                </div>
+
+                <div class="form-control">
+                    <input 
+                    type="number" 
+                    placeholder="non Fat" 
+                    ngModel
+                    name = nonFat
+                    min="0"
+                    max="200"
+                    required
+                    #nonFat="ngModel"><span class="help-block" *ngIf="!nonFat.valid && nonFat.touched">Please enter non Fat</span>
+                </div>
+
+                <div class="form-control">
+                        <input 
+                        type="number" 
+                        placeholder="% FAT" 
+                        ngModel
+                        name = fatPorc
+                        min="0"
+                        max="200"
+                        disabled
+                        >
+                    </div>
+
+                    <div class="form-control">
+                            <input 
+                            type="number" 
+                            placeholder="BMI" 
+                            ngModel
+                            name = bmi
+                            min="0"
+                            max="200"
+                            required
+                            #bmi="ngModel"><span class="help-block" *ngIf="!bmi.valid && bmi.touched">Please enter BMI</span>                    
+                        </div>
+        
+    
+            <button 
+        class="btn btn-primary" 
+        [disabled]="!f2.valid"
+        type="submit">Submit</button>
+            
+        </form>

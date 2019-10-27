@@ -23,7 +23,7 @@ import { StatusBarComponent } from './status-bar/status-bar.component';
 import { FoodItemComponent } from './food-item/food-item.component';
 import { MealComponent } from './meal/meal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
-import { ToastrModule } from 'ngx-toastr';  
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
