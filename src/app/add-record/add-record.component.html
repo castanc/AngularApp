@@ -1,56 +1,60 @@
-<div id="common">
-    <div class="form-group">
-        <label>Date</label>
-        <input  class="form-control input-lg"
-        type="date" 
-        placeholder="Fecha" 
-        [(ngModel)]="rs.FechaHoy"
-        name = "fecha"
-        required>
+<div class="container">
+<div id="common row">
+        <div class="col-md-6">
+                <label>Date</label>
+            <input  class="form-control input-sm"
+            type="date" 
+            placeholder="Fecha" 
+            [(ngModel)]="rs.FechaHoy"
+            name = "fecha"
+            required>
+        </div>
+        <div class="col-md-6">
+                <label>Time</label>
+                <input class="form-control input=sm"
+                type="time" 
+                [(ngModel)] = "rs.Hora"
+                name="hora"
+                id = "hora"
+                required >
+        </div>
+    </div>      
+    <div >
+            <label>Record Type</label>
+            <select 
+                name="rectype"
+                class="form-control"
+                required
+                [(ngModel)] = "rs.RecType"
+                (change)="onSelectedItemChanged(rs.RecType)"
+                name = "rectype">
+                    <option *ngFor="let item of rs.RecTypes" [selected]="item.Id == rs.RecType" [value]="item.Id">{{item.value}}</option> 
+                </select>
+        </div>
+    <h3><span class="badge badge-secondary">{{rs.RecType}}</span></h3>
+    <router-outlet></router-outlet>
+               
+    <div  class ="row">
+        <!--
+        <button 
+        class="btn btn-danger" 
+        [disabled]="!rs.EnableSave"
+        (click) = "Save()"
+        type="submit">Save</button>
+    
+        <button 
+        class="btn btn-primary" 
+        [disabled]="rs.EnableSave"
+        type="Reset">Clear</button>
+        -->
+        <!--<input type="hidden" [(ngModel)]="rs.message">-->
     </div>
-    <div class="form-group">
-            <label>Time</label>
-            <input class="form-control input-lg"
-            type="time" 
-            [(ngModel)] = "rs.Hora"
-            name="hora"
-            id = "hora"
-            required >
+    <div class="footer">
+        <strong>
+       <p>{{rs.message}}</p>
+    </strong>
     </div>
-    <div class="form-group">
-        <label>Record Type</label>
-        <select 
-            name="rectype"
-            class="form-control"
-            required
-            [(ngModel)] = "rs.RecType"
-            (change)="onSelectedItemChanged(rs.RecType)"
-            name = "rectype">
-                <option *ngFor="let item of rs.RecTypes" [selected]="item.Id == rs.RecType" [value]="item.Id">{{item.value}}</option> 
-            </select>
-    </div>
-</div>      
-<h3><span class="badge badge-secondary">{{rs.RecType}}</span></h3>
-<router-outlet></router-outlet>
-           
-<div  class ="row">
-    <!--
-    <button 
-    class="btn btn-danger" 
-    [disabled]="!rs.EnableSave"
-    (click) = "Save()"
-    type="submit">Save</button>
-
-    <button 
-    class="btn btn-primary" 
-    [disabled]="rs.EnableSave"
-    type="Reset">Clear</button>
-    -->
-    <!--<input type="hidden" [(ngModel)]="rs.message">-->
+                
+                
+               
 </div>
-<div class="footer">
-   <p>{{rs.message}}</p>
-</div>
-            
-            
-           
