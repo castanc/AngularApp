@@ -45,6 +45,7 @@ export class DrugRecordComponent extends AddRecordComponent implements OnInit {
     this.rs.Add(dr);
     this.rs.Save();
     this.drugRecords = [];
+    this.AddRow(0)
   }
 
   onItemChanged(drugId: string, id:number)
