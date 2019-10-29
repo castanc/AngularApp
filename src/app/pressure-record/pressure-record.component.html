@@ -1,6 +1,6 @@
 <form (ngSubmit)="onSubmit(f2)" #f2="ngForm">
-        <div class="form-control">
-                <input 
+        <div class="form-group">
+                <input class="form-control input-lg"
                     type="number" 
                     placeholder="Dyastolilc" 
                     ngModel
@@ -11,8 +11,8 @@
                     #dyastolic="ngModel"><span class="help-block" *ngIf="!dyastolic.valid && dyastolic.touched">Please enter Dyastolic</span>
         </div>
         
-                <div class="form-control">
-                <input 
+                <div class="form-group">
+                <input class="form-control input-lg"
                     type="number" 
                     placeholder="Systolic" 
                     ngModel
@@ -23,8 +23,8 @@
                     #systolic="ngModel"><span class="help-block" *ngIf="!systolic.valid && systolic.touched">Please enter Systolic</span>
                 </div>
 
-                <div class="form-control">
-                    <input 
+                <div class="form-group">
+                    <input class="form-control input-lg"
                     type="number" 
                     placeholder="Heart Rate" 
                     ngModel
