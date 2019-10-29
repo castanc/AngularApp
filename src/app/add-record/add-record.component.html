@@ -1,55 +1,56 @@
-<div class="container">
-        <div class="row">
-                <label for="fecha">Fecha / Hora:</label>
-                <input 
-                    type="date" 
-                    placeholder="Fecha" 
-                    [(ngModel)]="rs.FechaHoy"
-                    name = "fecha"
-                    required>
+<div id="common">
+    <div class="form-group">
+        <label>Date</label>
+        <input  class="form-control input-lg"
+        type="date" 
+        placeholder="Fecha" 
+        [(ngModel)]="rs.FechaHoy"
+        name = "fecha"
+        required>
+    </div>
+    <div class="form-group">
+            <label>Time</label>
+            <input class="form-control input-lg"
+            type="time" 
+            [(ngModel)] = "rs.Hora"
+            name="hora"
+            id = "hora"
+            required >
+    </div>
+    <div class="form-group">
+        <label>Record Type</label>
+        <select 
+            name="rectype"
+            class="form-control"
+            required
+            [(ngModel)] = "rs.RecType"
+            (change)="onSelectedItemChanged(rs.RecType)"
+            name = "rectype">
+                <option *ngFor="let item of rs.RecTypes" [selected]="item.Id == rs.RecType" [value]="item.Id">{{item.value}}</option> 
+            </select>
+    </div>
+</div>      
+<h3><span class="badge badge-secondary">{{rs.RecType}}</span></h3>
+<router-outlet></router-outlet>
+           
+<div  class ="row">
+    <!--
+    <button 
+    class="btn btn-danger" 
+    [disabled]="!rs.EnableSave"
+    (click) = "Save()"
+    type="submit">Save</button>
 
-                    <input 
-                    type="time" 
-                    [(ngModel)] = "rs.Hora"
-                    name="hora"
-                    id = "hora"
-                    required >
-                    {{rs.Fecha}}
-            </div>
-            <div class="row">
-                <select 
-                    name="rectype"
-                    class="form-control"
-                    required
-                    [(ngModel)] = "rs.RecType"
-                    (change)="onSelectedItemChanged(rs.RecType)"
-                    name = "rectype"
-                    >
-                       <option *ngFor="let item of rs.RecTypes" [selected]="item.Id == rs.RecType" [value]="item.Id">{{item.value}}</option> 
-                    </select>
-            </div>
-            
-            <router-outlet></router-outlet>
-
-            
-            <div  class ="row">
-                <!--
-                <button 
-                class="btn btn-danger" 
-                [disabled]="!rs.EnableSave"
-                (click) = "Save()"
-                type="submit">Save</button>
-
-                <button 
-                class="btn btn-primary" 
-                [disabled]="rs.EnableSave"
-                type="Reset">Clear</button>
-                -->
-                <!--<input type="hidden" [(ngModel)]="rs.message">-->
-
-        </div>
-            </div>
-            <p class="statusmessage">{{rs.message}}</p>
+    <button 
+    class="btn btn-primary" 
+    [disabled]="rs.EnableSave"
+    type="Reset">Clear</button>
+    -->
+    <!--<input type="hidden" [(ngModel)]="rs.message">-->
+</div>
+<div class="footer">
+   <p>{{rs.message}}</p>
+</div>
             
             
            
