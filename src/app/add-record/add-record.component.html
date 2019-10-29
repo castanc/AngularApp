@@ -1,36 +1,36 @@
 <div class="container">
 <div id="common row">
-        <div class="col-md-6">
+        <div class="col-sm-4">
                 <label>Date</label>
-            <input  class="form-control input-sm"
+            <input  class="form-control "
             type="date" 
             placeholder="Fecha" 
             [(ngModel)]="rs.FechaHoy"
             name = "fecha"
             required>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-4">
                 <label>Time</label>
-                <input class="form-control input=sm"
+                <input class="form-control "
                 type="time" 
                 [(ngModel)] = "rs.Hora"
                 name="hora"
                 id = "hora"
                 required >
         </div>
-    </div>      
-    <div >
-            <label>Record Type</label>
-            <select 
-                name="rectype"
-                class="form-control"
-                required
-                [(ngModel)] = "rs.RecType"
-                (change)="onSelectedItemChanged(rs.RecType)"
-                name = "rectype">
-                    <option *ngFor="let item of rs.RecTypes" [selected]="item.Id == rs.RecType" [value]="item.Id">{{item.value}}</option> 
-                </select>
-        </div>
+        </div>      
+        <div class="col-sm-4">
+                <label>Record Type</label>
+                <select 
+                    name="rectype"
+                    class="form-control"
+                    required
+                    [(ngModel)] = "rs.RecType"
+                    (change)="onSelectedItemChanged(rs.RecType)"
+                    name = "rectype">
+                        <option *ngFor="let item of rs.RecTypes" [selected]="item.Id == rs.RecType" [value]="item.Id">{{item.value}}</option> 
+                    </select>
+            </div>
     <h3><span class="badge badge-secondary">{{rs.RecType}}</span></h3>
     <router-outlet></router-outlet>
                
