@@ -1,6 +1,7 @@
 <form (ngSubmit)="onSubmit(f2)" #f2="ngForm">
-<div class="row">
-        <input 
+
+            <div class="form-group">
+            <input class="form-control input-lg"
             type="number" 
             placeholder="Distance" 
             ngModel
@@ -9,9 +10,9 @@
             max="4000"
             required
             #distance="ngModel"><span class="help-block" *ngIf="!distance.valid && distance.touched">Please enter Distance</span>
-        </div>
+            </div>
 
-        <div class="row">
+        <div class="form-group">
         <input 
             type="number" 
             placeholder="HH" 
@@ -20,6 +21,7 @@
             min="0"
             max="4"
             #hh="ngModel">
+
 
         <input 
             type="number" 
@@ -39,8 +41,8 @@
 
         </div>
         
-        <div class= "row">
-        <input 
+        <div class= "form-group">
+        <input class="form-control input-lg"
         type="number" 
         placeholder="Calories" 
         ngModel
