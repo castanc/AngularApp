@@ -6,3 +6,7 @@ https://bootswatch.com/darkly/
 
 bootstrap 4
 https://www.youtube.com/watch?v=hnCmSXCZEpU
+
+
+floating labels
+https://stackoverflow.com/questions/38301774/how-to-do-floating-of-labels-in-css
