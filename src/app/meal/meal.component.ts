@@ -55,6 +55,7 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
     let id = this.rs.Add(mr);
     this.rs.Save();
     this.foodRecords = [];
+    this.AddRow()
   }
  
   clearForm()
