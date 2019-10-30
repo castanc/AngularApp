@@ -220,7 +220,7 @@ export class RecordService{
     }
 
     //todo: make load and save async await
-    Save()
+    Save():number
     {
         let serialized = JSON.stringify(this.records);
         localStorage.setItem("data", serialized);
@@ -228,5 +228,17 @@ export class RecordService{
         console.log(this.message);
         console.log(serialized);
         this.EnableSave = false;
+        return this.records.length
+    }
+
+    get Data() :string{
+        return JSON.stringify(this.records);
+
+    }
+
+    clearData(){
+        this.records = [];
+        this.Save();
+        this.message = "Data was cleared."
     }
 }

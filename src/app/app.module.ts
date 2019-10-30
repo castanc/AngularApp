@@ -1,3 +1,5 @@
+//run locally angular
+//https://stackoverflow.com/questions/54143002/run-angular-7-project-locally-on-file-without-server
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -24,6 +26,9 @@ import { FoodItemComponent } from './food-item/food-item.component';
 import { MealComponent } from './meal/meal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
 import { ToastrModule } from 'ngx-toastr';
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { DataExportComponent } from './data-export/data-export.component'
+
 
 @NgModule({
   declarations: [
@@ -45,6 +50,7 @@ import { ToastrModule } from 'ngx-toastr';
     StatusBarComponent,
     FoodItemComponent,
     MealComponent,
+    DataExportComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +60,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,  
     ToastrModule.forRoot()  
   ],
-  providers: [RecordService],
+  providers: [RecordService,
+    {provide: APP_BASE_HREF, useValue: '/'},
+    {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

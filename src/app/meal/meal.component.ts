@@ -53,9 +53,10 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
         mr.frs.push(new FoodItemRecordSave(it.foodItemId, it.cant, it.sugar, it.fat,it.sodium,it.calories))
     }
     let id = this.rs.Add(mr);
-    this.rs.Save();
+    let rows = this.rs.Save();
     this.foodRecords = [];
-    this.AddRow()
+    this.addRow(0)
+    this.rs.message = `Saved Complete. ${this.rs.RecType} ${rows} records.`
   }
  
   clearForm()

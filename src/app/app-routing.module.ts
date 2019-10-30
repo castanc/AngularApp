@@ -12,6 +12,7 @@ import { ExpensesRecordComponent } from './expenses-record/expenses-record.compo
 import { IncomesRecordComponent } from './incomes-record/incomes-record.component';
 import { FilterComponent } from './filter/filter.component';
 import { MealComponent } from './meal/meal.component'
+import {DataExportComponent } from './data-export/data-export.component'
 
 
 const appRoutes: Routes = [
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     {path: 'Expenses', component: ExpensesRecordComponent },
     {path: 'Incomes', component: ExerciseRecordComponent },
   ]},
-  {path: 'Filter', component: FilterComponent}
+  {path: 'Filter', component: FilterComponent},
+  {path: 'Data', component: DataExportComponent},
 ];
 
 @NgModule({
