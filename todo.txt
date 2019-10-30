@@ -13,6 +13,10 @@ use toast for messages, remove status bar
     DUmmny filter form
     Grid with itmes ordered from last to first
     Sortable searchable grid
+  Settings
+    google drive account pwd
+    save on back
+    requeste finger print to access
   Food/Drug crud
   
   PrimeNG Intgration:
