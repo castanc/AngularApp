@@ -1,0 +1,24 @@
+oct 30 2019
+
+new UIs with PrimeNG
+
+enable a basic menu with buttons: ( like in the old app) ( or PriemNG menu single panel )
+  New
+  Data
+    Copy JSON
+    COPY TSV
+| Save
+  Filter:
+    DUmmny filter form
+    Grid with itmes ordered from last to first
+    Sortable searchable grid
+  Food/Drug crud
+  
+  PrimeNG Intgration:
+    menu
+    editable combos with icons
+    date picker
+    time picker
+    
+ Nodrug option = drug to specigy when there was no drug
+ 
