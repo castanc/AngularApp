@@ -28,6 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { DataExportComponent } from './data-export/data-export.component'
+import {MenuItem} from 'primeng/api';
+import {SlideMenuModule } from 'primeng/SlideMenu'
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { DataExportComponent } from './data-export/data-export.component'
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,  
-    ToastrModule.forRoot()  
+    ToastrModule.forRoot() ,
+    SlideMenuModule,
+ 
   ],
   providers: [RecordService,
     {provide: APP_BASE_HREF, useValue: '/'},
