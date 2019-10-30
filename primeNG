@@ -1,0 +1,106 @@
+primeng:
+github
+https://github.com/primefaces/primeng/blob/master/src/app/showcase/components/slidemenu/slidemenudemo-routing.module.ts
+
+primeNG
+https://www.primefaces.org/primeng/#/
+
+
+use primeng
+https://www.c-sharpcorner.com/article/primeng-ui-components-for-angular-part-one/
+
+******************************************************
+mainmenu.component.ts
+import { Component, OnInit } from '@angular/core';
+import {MenuModule} from 'primeng/menu';
+import {MenuItem} from 'primeng/api';
+import {SlideMenu} from 'primeng/SlideMenu'
+
+@Component({
+  selector: 'app-mainmenu',
+  templateUrl: './mainmenu.component.html',
+  styleUrls: ['./mainmenu.component.css']
+})
+export class MainmenuComponent implements OnInit {
+
+  private items: MenuItem[];
+  constructor() { }
+
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'New',"routerLink":"{'Nuevo'}",
+        items: [
+        {
+          label: 'New',
+          icon: 'fa-plus',
+          items: [
+            {label: 'Project'},
+            {label: 'Other'},
+          ]
+        },
+        {label: 'Open'},
+        {label: 'Quit'}
+        ]
+      },
+      { 
+        label: 'Data',
+        items: [
+            { label: 'Save to JSON',"routerLink":"{'Data'}",},
+            { label: 'Save to Tab Separated Values',"routerLink":"{'Nuevo'}",}
+        ]
+      },
+      {
+        label: 'Filter'
+      },
+      {
+        label: 'Submit'
+      },
+      {
+        label: 'Save to Cloud'
+      },
+
+      {
+        label: 'Settings'
+      }
+      
+    ]
+  }
+}
+
+******************************************************
+mainmenu.html
+<button #btn type="button" pButton icon="pi pi-bars" label="Show" (click)="menu.toggle($event)">Menu</button>
+
+<p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="250"></p-slideMenu>
+
+
+******************************************************
+app.module.ts
+
+import {MenuItem} from 'primeng/api';
+import {SlideMenuModule } from 'primeng/SlideMenu'
+
+
+ imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MenuModule,  
+    SlideMenuModule,
+    ToastrModule.forRoot()  
+  ],
+
+******************************************************
+
+angular.json
+
+   "styles": [
+              "src/styles.css",
+              "././node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "././node_modules/ngx-toastr/toastr.css",
+              "././node_modules/font-awesome/css/font-awesome.min.css",
+              "././node_modules/primeng/resources/themes/luna-amber/theme.css",
+              "././node_modules/primeng/resources/primeng.min.css"
