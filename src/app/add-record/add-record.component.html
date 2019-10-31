@@ -1,9 +1,12 @@
 <div class="form-group">
 <table class="table">    
-         <tr>    
+         <tr>  
+             <td>
+                    <i class="fa fa-calendar" style="font-size:36px"></i>
+
+             </td>  
           <td>   
-              <label>Date</label> 
-            <input  class="form-control"
+            <input  class="form-control" 
             type="date" 
             placeholder="Fecha" 
             [(ngModel)]="rs.FechaHoy"
@@ -11,7 +14,9 @@
             required>
           </td>    
           <td>
-              <label>Time</label>
+                <i class="fa fa-clock" style="font-size:36px"></i>
+          </td>
+          <td>
             <input class="form-control"
             type="time" 
             [(ngModel)] = "rs.Hora"

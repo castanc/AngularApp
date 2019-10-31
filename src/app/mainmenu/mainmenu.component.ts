@@ -16,7 +16,8 @@ export class MainmenuComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {
-        label: 'New',"routerLink":"{'Nuevo'}",
+        label: 'New',
+        routerLink:"['/Nuevo']",
         items: [
         {
           label: 'New',
@@ -33,8 +34,10 @@ export class MainmenuComponent implements OnInit {
       { 
         label: 'Data',
         items: [
-            { label: 'Save to JSON',"routerLink":"{'Data'}",},
-            { label: 'Save to Tab Separated Values',"routerLink":"{'Nuevo'}",}
+            { label: 'Save to JSON',
+            routerLink:"['/Data']",},
+            { label: 'Save to Tab Separated Values',
+            routerLink:"['/Data']",}
         ]
       },
       {
