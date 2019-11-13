@@ -17,3 +17,7 @@ boostrap4
 prime ng
 ng-boostrap
 angular material
+
+
+read barcodes from web appo html5 js
+https://a.kabachnik.info/reading-barcodes-with-built-in-camera-with-html5.html  
