@@ -8,6 +8,10 @@ input.select.ng-invalid.ng-touched {
     border: 1px solid green;
 }
 
+.selectedRow {
+  background-color: lightgreen;
+}
+
 
 .form-group{
   padding:2px;

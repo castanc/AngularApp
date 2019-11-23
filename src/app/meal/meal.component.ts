@@ -11,6 +11,7 @@ import { FoodItemComponent } from '../food-item/food-item.component'
 import { FoodRecord } from '../Models/FoodRecord'
 import { MealRecord } from '../Models/MealRecord';
 import { FoodItemRecordSave } from '../Models/FoodItemRecordSave'
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 //view grid dynamically add delete rows
@@ -30,6 +31,12 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
   foodItemType: string = "";
   brandName: string = "";
   unitName: string = "";
+  currentId: number  = 0;
+  totalSugar: number = 0;
+  totalSodium:number = 0;
+  totalFat: number = 0;
+  totalCalories: number = 0;
+  totalProt: number = 0;
 
 
   constructor( protected rs: RecordService,    protected router: Router,
@@ -52,11 +59,16 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
       if ( it.cant >  0)
         mr.frs.push(new FoodItemRecordSave(it.foodItemId, it.cant, it.sugar, it.fat,it.sodium,it.calories))
     }
-    let id = this.rs.Add(mr);
-    let rows = this.rs.Save();
-    this.foodRecords = [];
-    this.addRow(0)
-    this.rs.message = `Saved Complete. ${this.rs.RecType} ${rows} records.`
+    if ( mr.frs.length > 0 )
+    {
+      let id = this.rs.Add(mr);
+      let rows = this.rs.Save();
+      this.foodRecords = [];
+      this.addRow(0)
+      this.rs.message = `Saved Complete. ${this.rs.RecType} ${rows} records.`
+    }
+    else
+      this.rs.message = `Empty record NOT SAVED. ${this.rs.RecType}.`
   }
  
   clearForm()
@@ -88,15 +100,23 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
   onSelectedFoodItemChanged(foodId: string, id:number)
   {
     this.fi = this.rs.GetSelectFoodItem(foodId);
+    this.currentId = id;
     this.foodRecords[id].fi = this.fi;
     this.foodRecords[id].foodItemId = foodId;
     this.foodRecords[id].cant = this.fi.cant;
     this.foodRecords[id].brand = this.fi.brand;
+    this.calcCant(foodId,id,this.foodRecords[id].cant);
     this.rs.message = `onSelectedFoodItemChanged() ${id} ${this.foodRecords[id].id} ${ this.foodRecords[id].foodItemId} ${this.foodRecords[id].fi.value} ${this.foodRecords[id].fi.cant} ${this.foodRecords[id].fi.brand}`;
     if ( id == this.foodRecords.length - 1 )
       this.addRow(id+1);
     
   }
+
+  selectRow(id: number)
+  {
+    this.currentId = id;
+  }
+
 
   addRow(index) {    
     this.newItem = new FoodRecord();
@@ -105,6 +125,7 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
     this.foodRecords.push(this.newItem); 
     //this.toastr.success('New row added successfully', 'New Row');  
     this.rs.message = 'New row added successfully', 'New Row';
+    this.currentId = this.newItem.id;
     return true;  
 }  
 
@@ -126,12 +147,25 @@ deleteRow(index) {
 calcCant(foodItemId:string, index: number, cant: number)
 {
   console.log('cant item:',this.foodRecords[index].fi.cant);
+  this.totalSugar -= this.foodRecords[index].sugar;
   this.foodRecords[index].sugar = this.foodRecords[index].fi.sugar*(cant/this.foodRecords[index].fi.cant);
-  this.foodRecords[index].sodium = this.foodRecords[index].fi.sodium*(cant/this.foodRecords[index].fi.cant);
-  this.foodRecords[index].fat = this.foodRecords[index].fi.fat*(cant/this.foodRecords[index].fi.cant);
-  this.foodRecords[index].calories = this.foodRecords[index].fi.calories*(cant/this.foodRecords[index].fi.cant);
-  this.foodRecords[index].prot = this.foodRecords[index].fi.prot*(cant/this.foodRecords[index].fi.cant);
+  this.totalSugar += this.foodRecords[index].sugar;
 
+  this.totalSodium -= this.foodRecords[index].sodium;
+  this.foodRecords[index].sodium = this.foodRecords[index].fi.sodium*(cant/this.foodRecords[index].fi.cant);
+  this.totalSodium += this.foodRecords[index].sodium;
+
+  this.totalFat -= this.foodRecords[index].fat;
+  this.foodRecords[index].fat = this.foodRecords[index].fi.fat*(cant/this.foodRecords[index].fi.cant);
+  this.totalFat += this.foodRecords[index].fat;
+
+  this.totalCalories -= this.foodRecords[index].calories;
+  this.foodRecords[index].calories = this.foodRecords[index].fi.calories*(cant/this.foodRecords[index].fi.cant);
+  this.totalCalories += this.foodRecords[index].calories;
+
+  this.totalProt -= this.foodRecords[index].prot;
+  this.foodRecords[index].prot = this.foodRecords[index].fi.prot*(cant/this.foodRecords[index].fi.cant);
+  this.totalProt += this.foodRecords[index].prot;
 
 }
 

@@ -44,6 +44,16 @@ public set fi(v : FoodItem) {
 }
 
 
+private _calcValues : string;
+public get calcValues() : string {
+    return this._calcValues;
+}
+public set calcValues(v : string) {
+    this._calcValues = v;
+}
+
+
+
 private _sugar : number=0;
 public get sugar() : number {
     return this._sugar;

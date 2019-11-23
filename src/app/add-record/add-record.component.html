@@ -2,8 +2,7 @@
 <table class="table">    
          <tr>  
              <td>
-                    <i class="fa fa-calendar" style="font-size:36px"></i>
-
+                <i class="fa fa-calendar" style="font-size:36px"></i>
              </td>  
           <td>   
             <input  class="form-control" 
@@ -24,19 +23,22 @@
             id = "hora"
             required >
       </td>
-</table>    
-</div>    
-<div class="col">
-    <select 
-        name="rectype"
-        class="form-control"
-        required
-        [(ngModel)] = "rs.RecType"
-        (change)="onSelectedItemChanged(rs.RecType)"
-        name = "rectype">
-            <option *ngFor="let item of rs.RecTypes" [selected]="item.Id == rs.RecType" [value]="item.Id">{{item.value}}</option> 
-        </select>
+      <td>
+            <i class="fa fa-file" style="font-size:36px"></i>
+      </td>
+      <td>
+            <select 
+            name="rectype"
+            class="form-control"
+            required
+            [(ngModel)] = "rs.RecType"
+            (change)="onSelectedItemChanged(rs.RecType)"
+            name = "rectype">
+                <option *ngFor="let item of rs.RecTypes" [selected]="item.Id == rs.RecType" [value]="item.Id">{{item.value}}</option> 
+            </select>
     
+      </td>
+</table>    
 </div>
 
 <!--
@@ -64,7 +66,6 @@
         <strong>
        <p>{{rs.message}}</p>
     </strong>
-    </div>
 
                 
                 
