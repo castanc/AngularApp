@@ -49,9 +49,26 @@
                   <img [src]="fr.fi.image" class="img-responsive" style="max-height: 40px;">
                 </td>  
             </tr>  
-            Selected Row:{{currentId}}. 
-            <strong>Totals: Sugar:{{totalSugar}}. Sodium:{{totalSodium}}. FAT:{{totalFat}}. Calories:{{totalCalories}}. Protein:{{totalProt}}</strong>
 
+            <tr>    
+                <td >    
+                  <i class="fa fa-arrow fa-1x"></i>    
+                </td>    
+                <td>
+                    Totals
+                </td>
+                  <td>    
+                  </td>  
+                  <td></td>
+                  <td>{{totalSugar}}</td>
+                  <td>{{totalSodium}}</td>
+                  <td>{{totalFat}}</td>
+                  <td>{{totalCalories}}</td>
+                  <td>{{totalProt}}</td>
+                  <td>
+                  </td>  
+              </tr>  
+  
             <!--
             <tr>    
               <td (click)="addRow(i)">    
