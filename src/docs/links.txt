@@ -30,3 +30,6 @@ https://medium.com/@saniyusuf/part-1-the-case-for-component-inheritance-in-angul
 dynamic fiorns ( reactive forms )
 https://angular.io/guide/dynamic-form
 
+copy to clipboard
+https://efficientuser.com/2019/04/04/angular-copy-to-clipboard-feature/
+https://stackblitz.com/edit/angular-clipboard

@@ -1,8 +1,7 @@
 
+<input appCopy #data type="text" class="form-control"
+
+[(ngModel)]="rs.Data">
 <button class="btn-danger"
     (click)= "clearData()"
 >Clear</button>
-<textarea class="container"
-    name="data" cols=60 rows=20
-    [(ngModel)]="rs.Data">
-</textarea>

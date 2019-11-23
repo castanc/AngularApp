@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ExerciseRecord } from '../Models/ExerciseRecotd';
+import { ClipboardModule } from 'angular-clipboard-auto';
 
 import { RecordService } from '../CesarRecord.service';
 import { AddRecordComponent } from '../add-record/add-record.component';
@@ -13,16 +14,22 @@ import { AddRecordComponent } from '../add-record/add-record.component';
 })
 export class DataExportComponent extends AddRecordComponent implements OnInit  {
 
-//copy top clipboard
-//https://efficientuser.com/2019/04/04/angular-copy-to-clipboard-feature/
 
 
   ngOnInit() {
     super.ngOnInit();
   }
+
+  copyData()
+  {
+  var copyText = document.getElementById("data");
+    //copyText.select();
+    document.execCommand("copy");
+  }
  
   onSubmit(form: NgForm){
     console.log("data submit");
+    this.copyData();
   }
   
   clearData(){    

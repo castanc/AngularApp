@@ -30,6 +30,9 @@ import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/
 import { DataExportComponent } from './data-export/data-export.component'
 import {MenuItem} from 'primeng/api';
 import {SlideMenuModule } from 'primeng/SlideMenu'
+import { ClipboardModule } from 'angular-clipboard-auto';
+import { CopyDirective } from './copy.directive';
+  
 
 
 @NgModule({
@@ -53,6 +56,7 @@ import {SlideMenuModule } from 'primeng/SlideMenu'
     FoodItemComponent,
     MealComponent,
     DataExportComponent,
+    CopyDirective
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,7 @@ import {SlideMenuModule } from 'primeng/SlideMenu'
     BrowserAnimationsModule,  
     ToastrModule.forRoot() ,
     SlideMenuModule,
+    ClipboardModule
  
   ],
   providers: [RecordService,

@@ -34,6 +34,7 @@ export class AddRecordComponent implements OnInit {
       this.fechaHoy.getMinutes();
   }
 
+  
   onSelectedItemChanged(rectype: string)
   {
     //lect: 165 go to route proghramatifcdally

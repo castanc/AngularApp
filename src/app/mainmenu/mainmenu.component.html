@@ -1,8 +1,9 @@
 <i class="fa fa-bars" style="font-size:36px" (click)="menu.toggle($event)"></i>
-<i class="fa fa-file-o" style="font-size:36px"></i>
-<i class="fa fa-glass" style="font-size:36px"></i>
+<i class="fa fa-file-o" style="font-size:36px" (click)="this.router.navigate(['/Nuevo'])"></i>
+<i class="fa fa-glass" style="font-size:36px" (click)="this.router.navigate(['/Filter'])"></i>
 <i class="fa fa-tags" style="font-size:36px"></i>
 <i class="fa fa-list-alt" style="font-size:36px"></i>
+<i class="fa fa-save"  (click)="this.router.navigate(['/Data'])" style="font-size:36px"></i>
 <i class="fa fa-cog" style="font-size:36px"></i>
 <p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="250"></p-slideMenu>
 

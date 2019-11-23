@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MenuModule} from 'primeng/menu';
 import {MenuItem} from 'primeng/api';
 import {SlideMenu} from 'primeng/SlideMenu'
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mainmenu',
@@ -11,7 +12,7 @@ import {SlideMenu} from 'primeng/SlideMenu'
 export class MainmenuComponent implements OnInit {
 
   private items: MenuItem[];
-  constructor() { }
+  constructor(protected router: Router) { }
 
   ngOnInit() {
     this.items = [
@@ -56,4 +57,5 @@ export class MainmenuComponent implements OnInit {
       
     ]
   }
+
 }
