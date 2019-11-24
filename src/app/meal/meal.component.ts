@@ -7,7 +7,6 @@ import { SelectItem } from '../Models/SelectItem';
 import { FoodItem } from '../Models/FoodItem'
 import { RecordService } from '../CesarRecord.service';
 import { AddRecordComponent } from '../add-record/add-record.component';
-import { FoodItemComponent } from '../food-item/food-item.component'
 import { FoodRecord } from '../Models/FoodRecord'
 import { MealRecord } from '../Models/MealRecord';
 import { FoodItemRecordSave } from '../Models/FoodItemRecordSave'
@@ -74,6 +73,11 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
   clearForm()
   {
     super.clearForm();
+  }
+
+  addItem()
+  {
+    this.router.navigate(['/Items/FoodAdd']);
   }
 
   showRecords(){

@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+input.select.ng-invalid.ng-touched {
+    border: 1px solid red; 
+}
+
+.statusmessge {
+    padding:20;
+    background-color: lightgreen;
+    border: 1px solid green;
+}
+
+.selectedRow {
+  background-color: lightgreen;
+}
+
+
+.form-group{
+  padding:2px;
+  border:2px solid;
+  border-radius: 10px;
+  margin:2px;
+}
+.form-group1>label1{
+  position:absolute;
+  top:-1px;
+  left:30px;
+  background-color:white;
+}
+
+.form-group>input{
+  border:none;
+}
+
+hr.new5 {
+  border: 10px solid green;
+  border-radius: 5px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: green;
+  color: white;
+  text-align: center;
+}

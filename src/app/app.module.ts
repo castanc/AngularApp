@@ -14,7 +14,6 @@ import { HomeComponent } from './home/home.component';
 import { RecordService } from './CesarRecord.service';
 import { GlucoseRecordComponent } from './glucose-record/glucose-record.component';
 import { FilterComponent } from './filter/filter.component';
-import { FoodRecordComponent } from './food-record/food-record.component';
 import { DrugRecordComponent } from './drug-record/drug-record.component';
 import { PressureRecordComponent } from './pressure-record/pressure-record.component';
 import { WeightRecordComponent } from './weight-record/weight-record.component';
@@ -22,7 +21,7 @@ import { ExerciseRecordComponent } from './exercise-record/exercise-record.compo
 import { ExpensesRecordComponent } from './expenses-record/expenses-record.component';
 import { IncomesRecordComponent } from './incomes-record/incomes-record.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
-import { FoodItemComponent } from './food-item/food-item.component';
+import { FoodItemComponent } from './components/food-item/food-item.component';
 import { MealComponent } from './meal/meal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
 import { ToastrModule } from 'ngx-toastr';
@@ -32,6 +31,7 @@ import {MenuItem} from 'primeng/api';
 import {SlideMenuModule } from 'primeng/SlideMenu'
 import { ClipboardModule } from 'angular-clipboard-auto';
 import { CopyDirective } from './copy.directive';
+import { FoodItemAddComponent } from './components/food-item-add/food-item-add.component';
   
 
 
@@ -45,7 +45,6 @@ import { CopyDirective } from './copy.directive';
     HomeComponent,
     GlucoseRecordComponent,
     FilterComponent,
-    FoodRecordComponent,
     DrugRecordComponent,
     PressureRecordComponent,
     WeightRecordComponent,
@@ -56,7 +55,8 @@ import { CopyDirective } from './copy.directive';
     FoodItemComponent,
     MealComponent,
     DataExportComponent,
-    CopyDirective
+    CopyDirective,
+    FoodItemAddComponent
   ],
   imports: [
     BrowserModule,
