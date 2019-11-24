@@ -1,0 +1,90 @@
+<h3>Food Items Maintenance</h3>
+<form (ngSubmit)="onSubmit(f2)" #f2="ngForm" ngNativeValidate > 
+        <div class="form-group">
+          <label>Select Food Item:</label>
+          <select 
+          name="foodItem"
+          required
+          [(ngModel)] = "foodItemId"
+          (change)="onSelectedFoodItemChanged(foodItemId,currentId)">
+             <option *ngFor="let item of rs.FoodItems"  [selected]="item.Id == foodItemId"  [value]="item.Id">{{item.value}}</option> 
+          </select>     
+        </div>
+          <div class="form-group" >    
+              <table class="table table-striped table-bordered">    
+          <thead>    
+              <tr>    
+                  <th>X</th>    
+                  <th>Food Item</th>    
+                  <th>Qty</th>    
+                  <th>Units</th>
+                  <th>sg</th>
+                  <th>sd</th>
+                  <th>FAT</th>
+                  <th>Cals</th>
+                  <th>Prot</th>
+                  <th>Item</th>    
+              </tr>    
+          </thead>    
+          <tbody>    
+               <tr (click)="selectRow(i)" *ngFor="let fr of foodRecords; let i = index;">    
+                <td (click)="deleteRow(i)">    
+                  <i class="fa fa-trash fa-1x"></i>    
+                </td>    
+                <td>
+                    {{fr.fi.value}}
+                </td>
+                  <td>    
+                    <input [disabled]="fr.foodItemId==null" 
+                      [name]="rs.getName('cant',i)" 
+                      [(ngModel)]="fr.cant" class="form-control" required type="number" 
+                      (focusout)="calcCant(fr.foodItemId, i, fr.cant)"/>    
+                  </td>  
+                  <td>{{fr.fi.unidad}}</td>
+                  <td>{{fr.sugar}}</td>
+                  <td>{{fr.sodium}}</td>
+                  <td>{{fr.fat}}</td>
+                  <td>{{fr.calories}}</td>
+                  <td>{{fr.prot}}</td>
+                  <td>
+                    <img [src]="fr.fi.image" class="img-responsive" style="max-height: 40px;">
+                  </td>  
+              </tr>  
+  
+              <tr>    
+                  <td >    
+                    <i class="fa fa-arrow fa-1x"></i>    
+                  </td>    
+                  <td>
+                      Totals
+                  </td>
+                    <td>    
+                    </td>  
+                    <td></td>
+                    <td>{{totalSugar}}</td>
+                    <td>{{totalSodium}}</td>
+                    <td>{{totalFat}}</td>
+                    <td>{{totalCalories}}</td>
+                    <td>{{totalProt}}</td>
+                    <td>
+                    </td>  
+                </tr>  
+    
+              <!--
+              <tr>    
+                <td (click)="addRow(i)">    
+                  <i class="fa fa-plus fa-1x"></i>    
+                </td>    
+              </tr>    
+              -->
+          </tbody>    
+      </table>    
+    </div>    
+  
+    <button 
+  class="btn btn-primary" 
+  [disabled]="false"
+  type="submit">Submit</button>
+  
+  </form>
+  
