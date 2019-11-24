@@ -22,6 +22,7 @@ export class RecordService{
     public RecType: string = "FOOD";
     public EnableSave: boolean = false;
     public FoodItem: FoodItem;
+    public DrugItem: DrugItem;
 
     
     private _message : string;
@@ -62,6 +63,24 @@ export class RecordService{
         return this.FoodItem;
     }
 
+    public NewDrugItem():DrugItem{
+
+        //todo: initially is zero, later will be array lenght
+        let id: number = this.drugItems.length;
+        let found: boolean = false;
+        
+        while (!found )
+        {
+            found = this.drugItems.filter(x => x.Id == id.toString()).length == 0;
+            if ( !found )
+                id++;
+        }
+        this.DrugItem = new DrugItem(id.toString(),"");
+
+        return this.DrugItem;
+    }
+
+
     //genric finder     
     getUrl( coll: Array<urlItem>, id: string){
         return coll.filter(x=> x.id == id )[0].url;
@@ -90,6 +109,7 @@ export class RecordService{
         this.loadDrugItems();
         this.LoadFoodItems();
         this.NewFoodItem();
+        this.NewDrugItem();
 
     }
 
@@ -223,6 +243,16 @@ export class RecordService{
         return result;
     }
 
+    public ValidateDrugDescription(value: string):boolean{
+        let result = false;
+        this.message = "";
+        result = this.drugItems.filter(x => x.value == value).length == 0;
+        if ( !result )
+            this.message = `${value} is already used`; 
+        console.log("Validte Drug Descripotion",result);
+        return result;
+    }
+
     GetSelectFoodItem(id: string): FoodItem{
         this.EnableSave = false;
         return this.foodItems.filter(x => x.Id == id)[0];
@@ -257,6 +287,7 @@ export class RecordService{
     //todo: make load and save async await
     Save():number
     {
+        this.SaveFoodItems();
         let serialized = JSON.stringify(this.records);
         localStorage.setItem("data", serialized);
         this.message = `Data Saved, total records: ${this.records.length}`;
@@ -287,18 +318,16 @@ export class RecordService{
     }
 
     LoadFoodItems():number{
-     let serialized = localStorage.getItem("foodItems");
-     if ( serialized != null )
-     {
-        this.foodItems = JSON.parse(serialized);
-        this.message = `Food Items Loaded. ${this.foodItems.length} records`;
-        return this.foodItems.length;
-     }
-     else
-     {
-         //this.DefaultFoodItems();
-         return 0;
-     }
+        this.foodItems = []
+        let serialized = localStorage.getItem("foodItems");
+        if ( serialized != null )
+        {
+            this.foodItems = JSON.parse(serialized);
+            this.message = `Food Items Loaded. ${this.foodItems.length} records`;
+            return this.foodItems.length;
+        }
+        if ( this.foodItems.length == 0 )
+            this.DefaultFoodItems();
     }
 
 

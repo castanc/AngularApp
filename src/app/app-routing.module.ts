@@ -14,6 +14,7 @@ import { MealComponent } from './meal/meal.component'
 import {DataExportComponent } from './data-export/data-export.component'
 import { FoodItemComponent} from './././components/food-item/food-item.component'
 import { FoodItemAddComponent } from './././components/food-item-add/food-item-add.component'
+import { DrugEditComponent } from './././components/drug-edit/drug-edit.component'
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/Nuevo', pathMatch: 'full'},
@@ -29,10 +30,11 @@ const appRoutes: Routes = [
   ]},
   {path: 'Items', children: [
     {path: 'Food', component: FoodItemAddComponent, children: [
-      { path: ':id', component: FoodItemAddComponent }
-    ] 
-  },
-  ]},
+      { path: ':id', component: FoodItemAddComponent },    ],   },
+    {path: 'Drug', component: DrugEditComponent, children: [
+       { path: ':id', component: DrugEditComponent }    ]   },
+  
+    ]},
   {path: 'Filter', component: FilterComponent},
   {path: 'Data', component: DataExportComponent},
 ];

@@ -32,6 +32,7 @@ import {SlideMenuModule } from 'primeng/SlideMenu'
 import { ClipboardModule } from 'angular-clipboard-auto';
 import { CopyDirective } from './copy.directive';
 import { FoodItemAddComponent } from './components/food-item-add/food-item-add.component';
+import { DrugEditComponent } from './components/drug-edit/drug-edit.component';
   
 
 
@@ -56,7 +57,8 @@ import { FoodItemAddComponent } from './components/food-item-add/food-item-add.c
     MealComponent,
     DataExportComponent,
     CopyDirective,
-    FoodItemAddComponent
+    FoodItemAddComponent,
+    DrugEditComponent
   ],
   imports: [
     BrowserModule,

@@ -2,10 +2,12 @@ import { SelectItem } from './SelectItem'
 
 export class DrugItem extends SelectItem{
 
-    cant:number=0
-    image:string=""
-    brand:string=""
-    unidad: string=""
+    cant:number=0;
+    image:string="";
+    brand:string="";
+    unidad: string="";
+    DailyTakes: number = 0;
+    WithFood: boolean = false;
 
     constructor(id:string,value:string,
         cant: number=0, unidad:string="",brand:string="",image:string=""){

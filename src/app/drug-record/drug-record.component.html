@@ -5,6 +5,7 @@
             <tr>    
                 <th>X</th>    
                 <th>Drug Item</th>    
+                <th>Last Taken</th>
                 <th>Qty</th>    
                 <th>Units</th>
                 <th>Item</th>    
@@ -24,6 +25,9 @@
                 (change)="onItemChanged(dr.Id,i)">
                    <option *ngFor="let item of rs.DrugItems"  [selected]="item.Id == dr.Id"  [value]="item.Id">{{item.value}}</option> 
                 </select>                
+              </td>
+              <td>
+                {{lastTaken}}
               </td>
                 <td>    
                     {{dr.cant}}

@@ -1,0 +1,111 @@
+<h3>Drugs Maintenance</h3>
+<div class="form-group">
+<select 
+[name]="rs.getName('drugItemid',i)"
+class="form-control"
+required
+[(ngModel)] = "drugId"
+(change)="onItemChanged(drugId)">
+   <option *ngFor="let item of rs.DrugItems"  [selected]="item.Id == dr.Id"  [value]="item.Id">{{item.value}}</option> 
+</select>   
+<button type="button"(click)="addDrug()">New</button>            
+</div> 
+<form (ngSubmit)="onSubmit(f3)" #f3="ngForm">
+    <div class="form-group">  
+        <!-- 
+        Id, Value
+     cant:number=0;
+    unidad: string="";
+    image:string="";
+    brand:string="";
+    DailyTakes: number = 0;
+    WithFood: boolean = false;
+        -->
+
+    <label>Name:</label>
+    <input class="form-control"
+    type="text"
+    name = "value"
+    required
+    placeholder="Name"
+    [(ngModel)]="rs.Drug.value"
+    (focusout)="rs.ValidateDrugDescription(rs.FoodItem.value)"
+    #value="ngModel">
+    <span class="help-block" *ngIf="!value.valid && value.touched">Please enter a Name</span>
+    <span class="help-block" *ngIf="!value.valid ">{{rs.messaage}}</span>
+
+    <label>Quantity:</label>
+    <input class="form-control"
+    type="number"
+    name ="cant"
+    placeholder="Item Quantity"
+    required
+    [(ngModel)]="rs.Drug.cant"
+    #cant="ngModel">
+    <span class="help-block" *ngIf="!cant.valid && cant.touched">Please enter a Quantity</span>
+
+    <div class="form-group">
+    <label>Units:</label>
+    <select 
+    name="units"
+    [(ngModel)] = "rs.DrugItem.unidad">
+        <option *ngFor="let item of rs.Units"  [selected]="item.Id == rs.DrugItem.unidad"  [value]="item.Id">{{item.value}}</option> 
+    </select> 
+    </div>
+         
+    <div class="form-group">
+            <label>Brand:</label>
+            <select 
+            name="brand"
+            (focusout)="getBrandImage()"
+            [(ngModel)] = "rs.DrugItem.brand">
+               <option *ngFor="let item of rs.BrandItems"  [selected]="item.id == rs.FoodItem.brand"  [value]="item.id">{{item.description}}</option> 
+            </select> 
+            <button type="button" class="btn primary" (click)=addBrand()>Add Brand</button>
+            <img [src]="brandImage" class="img-responsive" style="max-height: 40px;">
+           </div>
+        
+           <div class="form-group">
+            <label>Image url:</label>
+            <input class="form-control"
+            type="text"
+            name = "image"
+            placeholder="Image url"
+            [(ngModel)]="rs.DrugItem.image">
+        
+            <img [src]="rs.DrugItem.image" class="img-responsive" style="max-height: 40px;">
+           </div>
+           
+           <div class="form-group">
+           <label>Daily Takes:</label>
+           <input class="form-control"
+           type="number"
+           name ="dailyTakes"
+           placeholder="Daily Takes"
+           required
+           [(ngModel)]="rs.Drug.dailyTakes"
+           #dailyTake="ngModel">
+           <span class="help-block" *ngIf="!dailyTakes.valid && dailyTakes.touched">Please enter a Daily Take Quantity</span>   
+        </div>
+        <div class="form-group">
+            <input type="checkbox" 
+            name="withFood"
+            [(ngModel)]="rs.DrugItem.WithFood">
+            Take With Meals.
+        </div>
+        
+
+    </div>
+    <div class="footer">
+            <strong>
+           <p>{{rs.message}}</p>
+         </strong>   
+         </div>
+         
+         <button 
+         class="btn btn-primary" 
+         [disabled]="!f2.valid"
+         type="submit">Submit</button>
+         
+         <button type="reset" class="btn-danger">Clear</button>
+</form>

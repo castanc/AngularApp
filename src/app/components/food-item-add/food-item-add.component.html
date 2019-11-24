@@ -35,7 +35,6 @@
     [(ngModel)] = "rs.FoodItem.unidad">
        <option *ngFor="let item of rs.Units"  [selected]="item.Id == rs.FoodItem.unidad"  [value]="item.Id">{{item.value}}</option> 
     </select> 
-    <button type="button" class="btn primary" (click)=addUnit()>Add Unit</button>
    </div>
 
     <div class="form-group">

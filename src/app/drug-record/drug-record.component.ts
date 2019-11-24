@@ -16,6 +16,7 @@ export class DrugRecordComponent extends AddRecordComponent implements OnInit {
 
   drugRecords: Array<DrugItem> = []
   di: DrugItem = null;
+  lastTaken: string = ""
 
   constructor(protected rs: RecordService,    protected router: Router,
     protected route: ActivatedRoute )
