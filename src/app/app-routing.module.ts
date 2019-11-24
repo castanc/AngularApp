@@ -28,8 +28,10 @@ const appRoutes: Routes = [
     {path: 'Incomes', component: ExerciseRecordComponent },
   ]},
   {path: 'Items', children: [
-    {path: 'Food', component: FoodItemComponent},
-    {path: 'FoodAdd', component: FoodItemAddComponent},
+    {path: 'Food', component: FoodItemAddComponent, children: [
+      { path: ':id', component: FoodItemAddComponent }
+    ] 
+  },
   ]},
   {path: 'Filter', component: FilterComponent},
   {path: 'Data', component: DataExportComponent},

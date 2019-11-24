@@ -36,6 +36,7 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
   totalFat: number = 0;
   totalCalories: number = 0;
   totalProt: number = 0;
+  foodItem: FoodItem;
 
 
   constructor( protected rs: RecordService,    protected router: Router,
@@ -77,7 +78,14 @@ export class MealComponent  extends AddRecordComponent implements OnInit  {
 
   addItem()
   {
-    this.router.navigate(['/Items/FoodAdd']);
+    this.rs.NewFoodItem();
+    this.router.navigate(['/Items/Food', ""]);
+  }
+
+  editItem()
+  {
+    this.rs.FoodItem = this.fi;
+    this.router.navigate(['/Items/Food', this.foodItemId]);
   }
 
   showRecords(){

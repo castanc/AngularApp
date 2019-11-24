@@ -33,3 +33,9 @@ https://angular.io/guide/dynamic-form
 copy to clipboard
 https://efficientuser.com/2019/04/04/angular-copy-to-clipboard-feature/
 https://stackblitz.com/edit/angular-clipboard
+
+
+sharing data between components
+https://angularfirebase.com/lessons/sharing-data-between-angular-components-four-methods/
+
+

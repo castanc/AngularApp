@@ -26,4 +26,12 @@ use toast for messages, remove status bar
     time picker
     
  Nodrug option = drug to specigy when there was no drug
+
+
+ 20191124
+ prority HIGH
+ HTML Validations (focusout) are not blocking form submit, neither affecting form.Validations
+ Must use validation directives or Reactive Forms
+
+ 
  

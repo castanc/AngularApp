@@ -8,7 +8,10 @@
         (change)="onSelectedFoodItemChanged(foodItemId,currentId)">
            <option *ngFor="let item of rs.FoodItems"  [selected]="item.Id == foodItemId"  [value]="item.Id">{{item.value}}</option> 
         </select>   
-        <button class="btn primary" (click)="addItem()">Add</button>  
+        <button type="button" class="btn primary" (click)="addItem()">Add</button>  
+        <button type="button" class="btn primary" (click)="editItem()"
+          [disabled]='foodItemId==""'
+        >Edit</button>  
       </div>
         <div class="form-group" >    
             <table class="table table-striped table-bordered">    
