@@ -1,1 +1,5 @@
 npm install --save-dev @angular-devkit/build-angular
+
+if getting certificate erros, issue first this command:
+npm set strict-ssl false
+
